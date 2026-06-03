@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Edit content | Wenlong Xue</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/editor.css" />
+</head>
+<body class="editor-page">
+  <header class="editor-header">
+    <div class="wrap editor-topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">WX</span>
+        <span>
+          <strong>Website editor</strong>
+          <small>Local JSON content manager</small>
+        </span>
+      </a>
+      <div class="editor-actions">
+        <button class="button secondary small" type="button" data-load-folder>Open folder</button>
+        <button class="button secondary small" type="button" data-download>Download JSON</button>
+        <button class="button small" type="button" data-save>Save to folder</button>
+        <a class="button secondary small" href="index.html">View site</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap editor-shell">
+    <aside class="editor-sidebar" aria-label="Editor sections">
+      <a href="#basics">Basics</a>
+      <a href="#homepage">Homepage</a>
+      <a href="#research-edit">Research</a>
+      <a href="#publications-edit">Publications</a>
+      <a href="#news-edit">News</a>
+      <a href="#people-edit">People</a>
+      <a href="#json-edit">JSON</a>
+    </aside>
+
+    <section class="editor-main">
+      <div class="status-bar" data-status>Loading content files...</div>
+
+      <form data-editor-form>
+        <section class="editor-panel" id="basics">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Basics</p>
+              <h1>Profile</h1>
+            </div>
+          </div>
+          <div class="field-grid two" data-basics-fields></div>
+        </section>
+
+        <section class="editor-panel" id="homepage">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Homepage</p>
+              <h2>Hero, profile text, and metrics</h2>
+            </div>
+          </div>
+          <div class="field-grid" data-homepage-fields></div>
+          <div class="list-editor" data-list="metrics"></div>
+        </section>
+
+        <section class="editor-panel" id="research-edit">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Research</p>
+              <h2>Directions and platforms</h2>
+            </div>
+          </div>
+          <div class="field-grid" data-research-fields></div>
+          <div class="list-editor" data-list="research"></div>
+          <div class="field-grid" data-platform-fields></div>
+          <div class="list-editor" data-list="platforms"></div>
+        </section>
+
+        <section class="editor-panel" id="publications-edit">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Publications</p>
+              <h2>Publication list</h2>
+            </div>
+            <button class="button secondary small" type="button" data-add="publications">Add paper</button>
+          </div>
+          <div class="collection" data-collection="publications"></div>
+        </section>
+
+        <section class="editor-panel" id="news-edit">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">News</p>
+              <h2>Recent updates</h2>
+            </div>
+            <button class="button secondary small" type="button" data-add="news">Add news</button>
+          </div>
+          <div class="collection" data-collection="news"></div>
+        </section>
+
+        <section class="editor-panel" id="people-edit">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">People</p>
+              <h2>Members and profiles</h2>
+            </div>
+            <button class="button secondary small" type="button" data-add="people">Add person</button>
+          </div>
+          <div class="collection" data-collection="people"></div>
+        </section>
+
+        <section class="editor-panel" id="json-edit">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">JSON</p>
+              <h2>Current data</h2>
+            </div>
+          </div>
+          <textarea class="json-preview" data-json-preview spellcheck="false" readonly></textarea>
+        </section>
+      </form>
+    </section>
+
+    <aside class="preview-pane">
+      <div class="preview-head">
+        <strong>Draft preview</strong>
+        <button class="button secondary small" type="button" data-refresh-preview>Refresh</button>
+      </div>
+      <iframe title="Draft site preview" src="index.html?draft=1" data-preview></iframe>
+    </aside>
+  </main>
+
+  <script src="assets/js/editor.js"></script>
+</body>
+</html>

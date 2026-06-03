@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Wenlong Xue",
+    "role": "MSCA Postdoctoral Fellow, KU Leuven",
+    "bio": "Wenlong develops hybrid glass frameworks, MOF glasses, and amorphous proton conductors, combining synthesis, structure analysis, transport measurements, and device-oriented processing.",
+    "links": [
+      {
+        "label": "ORCID",
+        "url": "https://orcid.org/0000-0003-0778-2300"
+      },
+      {
+        "label": "KU Leuven",
+        "url": "https://www.kuleuven.be/wieiswie/en/person/u0177372"
+      }
+    ]
+  },
+  {
+    "name": "Future group members",
+    "role": "Students, postdocs, visitors, and collaborators",
+    "bio": "This placeholder can later be replaced with individual profiles, research topics, photos, alumni information, and open positions.",
+    "links": []
+  }
+]

@@ -1,0 +1,92 @@
+{
+  "profile": {
+    "name": "Wenlong Xue",
+    "initials": "WX",
+    "role": "MSCA Postdoctoral Fellow",
+    "roleFull": "MSCA Postdoctoral Fellow, KU Leuven",
+    "affiliation": "cMACS, Department of Microbial and Molecular Systems, KU Leuven",
+    "location": "Leuven, Belgium",
+    "email": "xuetudo@gmail.com",
+    "scholarUrl": "https://scholar.google.com/citations?view_op=search_authors&mauthors=Wen-Long%20Xue",
+    "orcidUrl": "https://orcid.org/0000-0003-0778-2300",
+    "kuProfileUrl": "https://www.kuleuven.be/wieiswie/en/person/u0177372"
+  },
+  "hero": {
+    "eyebrow": "MOF glasses / amorphous proton conductors / device integration",
+    "title": "Wenlong Xue",
+    "subtitle": "Hybrid glass frameworks for energy and separation technologies.",
+    "lead": "Research at the interface of coordination networks, glass formation, proton transport, and device-oriented processing, with a long-term goal of connecting materials design to fuel-cell, electrolyser, and membrane technologies.",
+    "primaryText": "Explore research",
+    "primaryHref": "#research",
+    "secondaryText": "Publications",
+    "secondaryHref": "#publications"
+  },
+  "metrics": [
+    {
+      "label": "Hybrid glasses",
+      "value": "MOF-derived and directly synthesised amorphous networks"
+    },
+    {
+      "label": "Proton conductors",
+      "value": "anhydrous and humidified transport under practical conditions"
+    },
+    {
+      "label": "Characterisation",
+      "value": "synchrotron PDF, XAS, solid-state NMR, and impedance"
+    },
+    {
+      "label": "Device direction",
+      "value": "thin films, membranes, MEAs, and durability evaluation"
+    }
+  ],
+  "about": {
+    "heading": "Processable amorphous coordination networks",
+    "paragraphs": [
+      "Wenlong Xue works on the chemistry and processing of hybrid glass frameworks, MOF glasses, and amorphous proton conductors. The research combines coordination-network design with mechanochemistry, melt processing, thin-film preparation, and structure-property analysis.",
+      "Current work at KU Leuven focuses on directly synthesised amorphous networks, local structure and transport mechanisms, and device-oriented routes for integrating proton-conducting hybrid glasses into energy and separation technologies."
+    ]
+  },
+  "research": {
+    "heading": "From ordered frameworks to functional hybrid glasses",
+    "intro": "Research is organised around the design, transformation, and application of coordination networks that bridge crystalline MOFs, liquids, glasses, and device-processable films.",
+    "items": [
+      {
+        "title": "Direct synthesis of amorphous conductors",
+        "text": "Asymmetric and flexible linkers are used to redirect oxide-to-framework reactions from crystallisation to glass formation, enabling bulk amorphous networks without relying only on melt-quenching.",
+        "tags": ["synthesis", "hybrid glasses"]
+      },
+      {
+        "title": "Transport mechanism and local structure",
+        "text": "Synchrotron PDF, XAS, solid-state NMR, impedance spectroscopy, and molecular modelling are combined to reveal how local coordination order supports long-range proton transport.",
+        "tags": ["structure", "transport"]
+      },
+      {
+        "title": "Device-oriented processing",
+        "text": "Thin-film growth, lithographic patterning, and membrane-electrode integration are developed to evaluate hybrid glasses under realistic energy-device conditions.",
+        "tags": ["thin films", "devices"]
+      }
+    ]
+  },
+  "platforms": {
+    "heading": "A modular platform for materials discovery and device validation",
+    "intro": "The website is prepared as a personal academic site, while the content structure already supports expansion into a research-group website with group members, open positions, facilities, teaching, and collaborations.",
+    "items": [
+      {
+        "title": "Micro-Nano Device Platform",
+        "text": "Patterned MOF-glass thin films, interdigitated electrode arrays, and chip-level proton-transport screening."
+      },
+      {
+        "title": "Fuel-Cell and Electrolyser Platform",
+        "text": "Membrane-electrode integration, gas-barrier and conductivity evaluation, and long-term durability at 150-250 deg C."
+      },
+      {
+        "title": "Materials Library",
+        "text": "Directly synthesised amorphous networks, hybrid glass membranes, modifier chemistry, and composition-structure-property mapping."
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Collaborations and enquiries",
+    "text": "Research discussions, synchrotron proposals, student enquiries, and collaborative projects in hybrid glasses, MOF processing, and proton-conducting materials are welcome."
+  }
+}

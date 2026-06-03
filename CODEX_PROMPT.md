@@ -1,0 +1,62 @@
+# Codex instruction: maintain Wenlong Xue academic website
+
+You are helping maintain an academic website for Wenlong Xue. The site should remain a fast, static, GitHub Pages-compatible academic website that is easy for a non-specialist to update.
+
+## Current architecture
+
+- Plain HTML, CSS, and JavaScript.
+- No build step and no backend.
+- `index.html` is the public website.
+- `edit.html` is a local browser-based editor for JSON content.
+- Public content is stored under `content/`.
+
+## Editing rules
+
+Routine content updates should be made in JSON:
+
+- `content/site.json`: profile, hero text, metrics, about text, research, platforms, and contact.
+- `content/publications.json`: publication entries.
+- `content/news.json`: recent updates.
+- `content/people.json`: profile and group members.
+
+Avoid hard-coding content into `index.html` unless the layout itself needs to change.
+
+## Design direction
+
+- Academic, modern, clean, and credible for a future research-group website.
+- Use restrained cards and clear hierarchy.
+- Keep layout responsive for desktop, tablet, and mobile.
+- Avoid heavy dependencies and avoid adding a build system unless the project expands substantially.
+
+## Content direction
+
+- Use British English.
+- Prefer concise scientific language.
+- Core themes: hybrid glass frameworks, MOF glasses, amorphous proton conductors, synchrotron characterisation, thin-film processing, device integration, and energy/separation technologies.
+- Do not overclaim unpublished results.
+
+## Publication data
+
+Publication entries support:
+
+- `title`
+- `authors`
+- `journal`
+- `year`
+- `doi`
+- `url`
+- `tags`
+- `selected`
+
+Sort publications newest first. Use DOI URLs where possible.
+
+## Validation checklist
+
+Before finalising edits:
+
+- Confirm JSON files are valid.
+- Run through a local server, for example `python -m http.server 8000`.
+- Check `index.html` and `edit.html` in a browser.
+- Check mobile layout below 760 px.
+- Confirm publication filters work.
+- Confirm editor draft preview and JSON saving/downloading work.

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 720" role="img" aria-labelledby="title desc">
+  <title id="title">Hybrid glass network illustration</title>
+  <desc id="desc">Abstract nodes and links representing a disordered coordination network.</desc>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#fff8df"/>
+      <stop offset="62%" stop-color="#eed6a8"/>
+      <stop offset="100%" stop-color="#d7aa62"/>
+    </radialGradient>
+    <linearGradient id="line" x1="0" x2="1">
+      <stop offset="0" stop-color="#7d4e12" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="#1c1a16" stop-opacity="0.42"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#5a3710" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+  <rect width="900" height="720" fill="url(#bg)"/>
+  <g opacity="0.45" stroke="url(#line)" stroke-width="5" fill="none" stroke-linecap="round">
+    <path d="M142 210 C240 130 302 250 390 188 S566 111 690 214"/>
+    <path d="M194 474 C268 348 350 433 448 318 S632 260 752 405"/>
+    <path d="M108 346 C224 391 280 284 390 374 S578 513 760 330"/>
+    <path d="M286 118 C324 258 520 196 548 348 S584 536 720 598"/>
+    <path d="M166 590 C270 510 314 594 430 526 S604 450 782 508"/>
+    <path d="M116 270 L278 122 L486 212 L710 150 L786 318 L652 510 L426 602 L210 506 Z"/>
+  </g>
+  <g filter="url(#shadow)">
+    <g fill="#fffdf8" stroke="#1c1a16" stroke-width="5">
+      <circle cx="142" cy="210" r="31"/>
+      <circle cx="278" cy="122" r="28"/>
+      <circle cx="390" cy="188" r="35"/>
+      <circle cx="486" cy="212" r="24"/>
+      <circle cx="690" cy="214" r="38"/>
+      <circle cx="194" cy="474" r="34"/>
+      <circle cx="390" cy="374" r="29"/>
+      <circle cx="548" cy="348" r="42"/>
+      <circle cx="752" cy="405" r="27"/>
+      <circle cx="210" cy="506" r="26"/>
+      <circle cx="430" cy="526" r="39"/>
+      <circle cx="652" cy="510" r="30"/>
+      <circle cx="720" cy="598" r="22"/>
+    </g>
+    <g fill="#1c1a16">
+      <circle cx="142" cy="210" r="8"/>
+      <circle cx="278" cy="122" r="7"/>
+      <circle cx="390" cy="188" r="9"/>
+      <circle cx="486" cy="212" r="6"/>
+      <circle cx="690" cy="214" r="10"/>
+      <circle cx="194" cy="474" r="8"/>
+      <circle cx="390" cy="374" r="7"/>
+      <circle cx="548" cy="348" r="11"/>
+      <circle cx="752" cy="405" r="7"/>
+      <circle cx="210" cy="506" r="7"/>
+      <circle cx="430" cy="526" r="10"/>
+      <circle cx="652" cy="510" r="8"/>
+      <circle cx="720" cy="598" r="6"/>
+    </g>
+  </g>
+  <g opacity="0.72">
+    <path d="M89 629 C194 682 317 676 422 636" fill="none" stroke="#fff8e9" stroke-width="3" stroke-linecap="round"/>
+    <path d="M567 87 C662 47 754 70 830 142" fill="none" stroke="#fff8e9" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,0 +1,132 @@
+[
+  {
+    "title": "Alkali-ion-modified zeolitic imidazolate framework glasses",
+    "authors": "Chen, Q.; Xue, W.-L.; et al.",
+    "journal": "Nature Chemistry",
+    "year": "2026",
+    "doi": "10.1038/s41557-026-02115-8",
+    "url": "https://doi.org/10.1038/s41557-026-02115-8",
+    "tags": ["MOF glass", "alkali ions", "ZIF"],
+    "selected": true
+  },
+  {
+    "title": "Facile melt-quenched glass formation of zwitterion-modified carboxylate metal-organic frameworks",
+    "authors": "Han, T.; Xue, W.-L.; et al.",
+    "journal": "Chemistry of Materials",
+    "year": "2026",
+    "doi": "10.1021/acs.chemmater.5c03043",
+    "url": "https://doi.org/10.1021/acs.chemmater.5c03043",
+    "tags": ["carboxylate MOF", "glass formation", "zwitterion"],
+    "selected": true
+  },
+  {
+    "title": "Flux melting of UiO-67 family metal-organic frameworks: the thin film processing and nanofiltration property",
+    "authors": "Fu, L.; Xue, W.-L.; et al.",
+    "journal": "Advanced Membranes",
+    "year": "2026",
+    "doi": "10.1016/j.advmem.2025.100182",
+    "url": "https://doi.org/10.1016/j.advmem.2025.100182",
+    "tags": ["thin films", "UiO-67", "membranes"],
+    "selected": true
+  },
+  {
+    "title": "Emergent spin-glass behavior in an iron(II)-based metal-organic framework glass",
+    "authors": "Tan, X.; Xue, W.-L.; et al.",
+    "journal": "Advanced Functional Materials",
+    "year": "2025",
+    "doi": "10.1002/adfm.202517854",
+    "url": "https://doi.org/10.1002/adfm.202517854",
+    "tags": ["MOF glass", "spin glass", "iron"],
+    "selected": true
+  },
+  {
+    "title": "Engineering a meltable metal-organic framework to tune liquid transition and promote coenzyme regeneration",
+    "authors": "Xiao, R.; Xue, W.-L.; et al.",
+    "journal": "Angewandte Chemie International Edition",
+    "year": "2025",
+    "doi": "10.1002/anie.202506570",
+    "url": "https://doi.org/10.1002/anie.202506570",
+    "tags": ["meltable MOF", "liquid transition", "biocatalysis"],
+    "selected": true
+  },
+  {
+    "title": "Mechanochemical synthesis enables melting, glass formation and glass-ceramic conversion in a cadmium-based zeolitic imidazolate framework",
+    "authors": "Wu, Z.; Xue, W.-L.; et al.",
+    "journal": "Journal of the American Chemical Society",
+    "year": "2025",
+    "doi": "10.1021/jacs.5c02767",
+    "url": "https://doi.org/10.1021/jacs.5c02767",
+    "tags": ["mechanochemistry", "glass-ceramic", "ZIF"],
+    "selected": true
+  },
+  {
+    "title": "Defect identification in zeolitic imidazolate framework glasses by solid-state NMR spectroscopy using 13CO2 as probe",
+    "authors": "Chen, Q.; Xue, W.-L.; et al.",
+    "journal": "Chemistry of Materials",
+    "year": "2025",
+    "doi": "10.1021/acs.chemmater.4c03190",
+    "url": "https://doi.org/10.1021/acs.chemmater.4c03190",
+    "tags": ["solid-state NMR", "defects", "ZIF glass"],
+    "selected": true
+  },
+  {
+    "title": "Pore structure modulation in kirigamic zeolitic imidazolate framework",
+    "authors": "Wang, Z.; Xue, W.-L.; et al.",
+    "journal": "Angewandte Chemie International Edition",
+    "year": "2025",
+    "doi": "10.1002/anie.202417137",
+    "url": "https://doi.org/10.1002/anie.202417137",
+    "tags": ["porosity", "kirigami", "ZIF"],
+    "selected": false
+  },
+  {
+    "title": "Xenon adsorption-induced flexibility of ZIF-4 observed by in situ 129Xe NMR spectroscopy",
+    "authors": "Miyake, H.; Xue, W.-L.; et al.",
+    "journal": "Chemical Communications",
+    "year": "2025",
+    "doi": "10.1039/d5cc04620c",
+    "url": "https://doi.org/10.1039/d5cc04620c",
+    "tags": ["ZIF-4", "129Xe NMR", "flexibility"],
+    "selected": false
+  },
+  {
+    "title": "Insights into the mechanochemical glass formation of zeolitic imidazolate frameworks",
+    "authors": "Xue, W.-L.; et al.",
+    "journal": "Angewandte Chemie International Edition",
+    "year": "2024",
+    "doi": "10.1002/anie.202405307",
+    "url": "https://doi.org/10.1002/anie.202405307",
+    "tags": ["mechanochemistry", "ZIF", "glass formation"],
+    "selected": true
+  },
+  {
+    "title": "Highly porous metal-organic framework liquids and glasses via a solvent-assisted linker exchange strategy of ZIF-8",
+    "authors": "Xue, W.-L.; et al.",
+    "journal": "Nature Communications",
+    "year": "2024",
+    "doi": "10.1038/s41467-024-48703-5",
+    "url": "https://doi.org/10.1038/s41467-024-48703-5",
+    "tags": ["MOF liquids", "porosity", "ZIF-8"],
+    "selected": true
+  },
+  {
+    "title": "Melt-quenched glass formation of a family of metal-carboxylate frameworks",
+    "authors": "Xue, W.-L.; et al.",
+    "journal": "Nature Communications",
+    "year": "2024",
+    "doi": "10.1038/s41467-024-46311-x",
+    "url": "https://doi.org/10.1038/s41467-024-46311-x",
+    "tags": ["carboxylate frameworks", "melt-quenching", "MOF glass"],
+    "selected": true
+  },
+  {
+    "title": "MOF-directed synthesis of crystalline ionic liquids with enhanced proton conduction",
+    "authors": "Xue, W.-L.; et al.",
+    "journal": "Angewandte Chemie International Edition",
+    "year": "2021",
+    "doi": "10.1002/anie.202010783",
+    "url": "https://doi.org/10.1002/anie.202010783",
+    "tags": ["proton conduction", "ionic liquids", "MOF"],
+    "selected": true
+  }
+]
