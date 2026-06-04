@@ -14,7 +14,7 @@ You are helping maintain an academic website for Wenlong Xue. The site should re
 
 Routine content updates should be made in JSON:
 
-- `content/site.json`: profile, hero text, metrics, about text, research, platforms, and contact.
+- `content/site.json`: profile, hero text, about text, research, and contact.
 - `content/publications.json`: publication entries.
 - `content/news.json`: recent updates.
 - `content/people.json`: profile and group members.
@@ -24,7 +24,7 @@ Avoid hard-coding content into `index.html` unless the layout itself needs to ch
 ## Design direction
 
 - Academic, modern, clean, and credible for a future research-group website.
-- Use restrained cards and clear hierarchy.
+- Use restrained sections, narrow text measure, and clear hierarchy.
 - Keep layout responsive for desktop, tablet, and mobile.
 - Avoid heavy dependencies and avoid adding a build system unless the project expands substantially.
 

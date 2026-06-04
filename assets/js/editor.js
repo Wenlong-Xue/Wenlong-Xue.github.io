@@ -33,16 +33,6 @@ const listConfigs = {
       { key: "tags", label: "Tags", type: "tags" }
     ]
   },
-  platforms: {
-    title: "Platforms",
-    path: "site.platforms.items",
-    addLabel: "Add platform",
-    defaults: () => ({ title: "New platform", text: "" }),
-    fields: [
-      { key: "title", label: "Title" },
-      { key: "text", label: "Text", type: "textarea" }
-    ]
-  },
   publications: {
     title: "Publications",
     path: "publications",
@@ -239,10 +229,6 @@ function renderStaticFields() {
     fieldHTML("site.research.intro", "Research intro", "textarea", { full: true })
   ].join("");
 
-  $("[data-platform-fields]").innerHTML = [
-    fieldHTML("site.platforms.heading", "Platform heading", "text", { full: true }),
-    fieldHTML("site.platforms.intro", "Platform intro", "textarea", { full: true })
-  ].join("");
 }
 
 function renderListEditor(key) {

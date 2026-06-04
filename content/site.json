@@ -15,73 +15,34 @@
     "eyebrow": "MOF glasses / amorphous proton conductors / device integration",
     "title": "Wenlong Xue",
     "subtitle": "Hybrid glass frameworks for energy and separation technologies.",
-    "lead": "Research at the interface of coordination networks, glass formation, proton transport, and device-oriented processing, with a long-term goal of connecting materials design to fuel-cell, electrolyser, and membrane technologies.",
-    "primaryText": "Explore research",
-    "primaryHref": "#research",
-    "secondaryText": "Publications",
-    "secondaryHref": "#publications"
+    "lead": "Research at the interface of coordination networks, glass formation, proton transport, and device-oriented processing."
   },
-  "metrics": [
-    {
-      "label": "Hybrid glasses",
-      "value": "MOF-derived and directly synthesised amorphous networks"
-    },
-    {
-      "label": "Proton conductors",
-      "value": "anhydrous and humidified transport under practical conditions"
-    },
-    {
-      "label": "Characterisation",
-      "value": "synchrotron PDF, XAS, solid-state NMR, and impedance"
-    },
-    {
-      "label": "Device direction",
-      "value": "thin films, membranes, MEAs, and durability evaluation"
-    }
-  ],
   "about": {
-    "heading": "Processable amorphous coordination networks",
+    "heading": "Hybrid glass frameworks",
     "paragraphs": [
-      "Wenlong Xue works on the chemistry and processing of hybrid glass frameworks, MOF glasses, and amorphous proton conductors. The research combines coordination-network design with mechanochemistry, melt processing, thin-film preparation, and structure-property analysis.",
-      "Current work at KU Leuven focuses on directly synthesised amorphous networks, local structure and transport mechanisms, and device-oriented routes for integrating proton-conducting hybrid glasses into energy and separation technologies."
+      "Wenlong Xue works on the chemistry and processing of hybrid glass frameworks, MOF glasses, and amorphous proton conductors. The research connects coordination-network design with glass formation, mechanochemistry, melt processing, thin-film preparation, and structure-property analysis.",
+      "A central theme is the transformation of ordered crystalline frameworks into disordered but functional materials. These hybrid glasses combine local coordination order with processability, mechanical stability, and transport properties that are difficult to access in conventional crystalline solids.",
+      "Current work at KU Leuven focuses on directly synthesised amorphous networks, local structure and transport mechanisms, and routes for integrating proton-conducting hybrid glasses into energy and separation technologies."
     ]
   },
   "research": {
-    "heading": "From ordered frameworks to functional hybrid glasses",
-    "intro": "Research is organised around the design, transformation, and application of coordination networks that bridge crystalline MOFs, liquids, glasses, and device-processable films.",
+    "heading": "Hybrid Materials: Crystals, Liquids, Glasses and Devices",
+    "intro": "Research is organised around the synthesis, structure, and processing of coordination networks across crystalline and amorphous states.",
     "items": [
       {
-        "title": "Direct synthesis of amorphous conductors",
-        "text": "Asymmetric and flexible linkers are used to redirect oxide-to-framework reactions from crystallisation to glass formation, enabling bulk amorphous networks without relying only on melt-quenching.",
-        "tags": ["synthesis", "hybrid glasses"]
+        "title": "Amorphous coordination networks",
+        "text": "Direct synthesis and transformation routes are used to access bulk hybrid glasses and disordered coordination networks without relying only on traditional melt-quenching.",
+        "tags": ["synthesis", "MOF glass"]
       },
       {
-        "title": "Transport mechanism and local structure",
-        "text": "Synchrotron PDF, XAS, solid-state NMR, impedance spectroscopy, and molecular modelling are combined to reveal how local coordination order supports long-range proton transport.",
+        "title": "Local structure and transport",
+        "text": "Synchrotron PDF, XAS, solid-state NMR, impedance spectroscopy, and modelling are combined to understand how local order supports proton and ion transport.",
         "tags": ["structure", "transport"]
       },
       {
-        "title": "Device-oriented processing",
-        "text": "Thin-film growth, lithographic patterning, and membrane-electrode integration are developed to evaluate hybrid glasses under realistic energy-device conditions.",
+        "title": "Processing for energy devices",
+        "text": "Thin films, membranes, and patterned architectures are developed to connect hybrid glass chemistry with medium-temperature fuel cells, electrolysers, and separation systems.",
         "tags": ["thin films", "devices"]
-      }
-    ]
-  },
-  "platforms": {
-    "heading": "A modular platform for materials discovery and device validation",
-    "intro": "The website is prepared as a personal academic site, while the content structure already supports expansion into a research-group website with group members, open positions, facilities, teaching, and collaborations.",
-    "items": [
-      {
-        "title": "Micro-Nano Device Platform",
-        "text": "Patterned MOF-glass thin films, interdigitated electrode arrays, and chip-level proton-transport screening."
-      },
-      {
-        "title": "Fuel-Cell and Electrolyser Platform",
-        "text": "Membrane-electrode integration, gas-barrier and conductivity evaluation, and long-term durability at 150-250 deg C."
-      },
-      {
-        "title": "Materials Library",
-        "text": "Directly synthesised amorphous networks, hybrid glass membranes, modifier chemistry, and composition-structure-property mapping."
       }
     ]
   },

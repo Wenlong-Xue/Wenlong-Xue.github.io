@@ -11,141 +11,80 @@
   <header class="site-header" id="top">
     <nav class="nav wrap" aria-label="Main navigation">
       <a class="brand" href="#top" aria-label="Homepage">
-        <span class="brand-mark" data-profile-initials>WX</span>
-        <span>
-          <strong data-profile-name>Wenlong Xue</strong>
-          <small data-profile-role>MSCA Postdoctoral Fellow</small>
-        </span>
+        <span data-profile-name>Wenlong Xue</span>
       </a>
-      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
-        <span></span><span></span><span></span>
+      <button class="menu-button" type="button" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
+        <span></span>
+        <strong>Menu</strong>
       </button>
       <div class="nav-links" data-nav-links>
+        <a href="#about">Home</a>
         <a href="#research">Research</a>
-        <a href="#platforms">Platforms</a>
         <a href="#publications">Publications</a>
         <a href="#news">News</a>
         <a href="#people">People</a>
-        <a href="#contact" class="button small">Contact</a>
+        <a href="#contact">Contact</a>
       </div>
     </nav>
   </header>
 
+  <div class="material-banner" aria-hidden="true">
+    <img src="assets/img/network.svg" alt="" />
+  </div>
+
   <main>
-    <section class="hero">
-      <div class="hero-art" aria-hidden="true">
-        <img src="assets/img/network.svg" alt="" />
+    <section class="intro wrap" id="about">
+      <p class="eyebrow" data-hero-eyebrow>MOF glasses / amorphous proton conductors / device integration</p>
+      <h1 data-hero-title>Wenlong Xue</h1>
+      <p class="subtitle" data-hero-subtitle>Hybrid glass frameworks for energy and separation technologies.</p>
+      <div class="intro-copy" data-about-text></div>
+      <p class="profile-line">
+        <span data-profile-role-full>MSCA Postdoctoral Fellow, KU Leuven</span><br />
+        <span data-profile-affiliation>cMACS, Department of Microbial and Molecular Systems, KU Leuven</span><br />
+        <span data-profile-location>Leuven, Belgium</span>
+      </p>
+    </section>
+
+    <section class="section wrap" id="research">
+      <div class="section-heading">
+        <p class="eyebrow">Research areas</p>
+        <h2 data-research-heading>From ordered frameworks to functional hybrid glasses</h2>
+        <p data-research-intro></p>
       </div>
-      <div class="wrap hero-inner">
-        <p class="eyebrow" data-hero-eyebrow>MOF glasses / amorphous proton conductors / device integration</p>
-        <h1 data-hero-title>Wenlong Xue</h1>
-        <p class="hero-subtitle" data-hero-subtitle>Hybrid glass frameworks for energy and separation technologies.</p>
-        <p class="lead" data-hero-lead>Research at the interface of coordination networks, glass formation, proton transport, and device-oriented processing.</p>
-        <div class="hero-actions">
-          <a class="button" href="#research" data-hero-primary>Explore research</a>
-          <a class="button secondary" href="#publications" data-hero-secondary>Publications</a>
+      <div class="research-grid" data-research></div>
+    </section>
+
+    <section class="section wrap" id="publications">
+      <div class="section-heading inline-heading">
+        <div>
+          <p class="eyebrow">Publications</p>
+          <h2>Selected papers</h2>
         </div>
-        <dl class="profile-facts" aria-label="Profile summary">
-          <div>
-            <dt>Role</dt>
-            <dd data-profile-role-full>MSCA Postdoctoral Fellow</dd>
-          </div>
-          <div>
-            <dt>Affiliation</dt>
-            <dd data-profile-affiliation>KU Leuven</dd>
-          </div>
-          <div>
-            <dt>Location</dt>
-            <dd data-profile-location>Leuven, Belgium</dd>
-          </div>
-        </dl>
+        <a class="text-link" href="https://scholar.google.com/citations?view_op=search_authors&mauthors=Wen-Long%20Xue" target="_blank" rel="noopener" data-scholar-link>Google Scholar</a>
       </div>
-    </section>
-
-    <section class="summary-band">
-      <div class="wrap metrics-grid" data-metrics></div>
-    </section>
-
-    <section class="section wrap about-grid" id="about">
-      <div>
-        <p class="eyebrow">Profile</p>
-        <h2 data-about-heading>Processable amorphous coordination networks</h2>
-      </div>
-      <div class="rich-text" data-about-text></div>
-    </section>
-
-    <section class="section tint" id="research">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Research</p>
-          <h2 data-research-heading>From ordered frameworks to functional hybrid glasses</h2>
-          <p data-research-intro></p>
-        </div>
-        <div class="card-grid three" data-research></div>
-      </div>
-    </section>
-
-    <section class="section wrap" id="platforms">
-      <div class="section-head">
-        <p class="eyebrow">Future group direction</p>
-        <h2 data-platform-heading>A modular platform for materials discovery and device validation</h2>
-        <p data-platform-intro></p>
-      </div>
-      <div class="platform-layout" data-platforms></div>
-    </section>
-
-    <section class="section tint" id="publications">
-      <div class="wrap">
-        <div class="section-head inline-head">
-          <div>
-            <p class="eyebrow">Publications</p>
-            <h2>Selected papers</h2>
-          </div>
-          <div class="publication-actions">
-            <label class="select-label">
-              <span>Year</span>
-              <select data-filter-year>
-                <option value="all">All</option>
-              </select>
-            </label>
-            <label class="select-label">
-              <span>Topic</span>
-              <select data-filter-topic>
-                <option value="all">All</option>
-              </select>
-            </label>
-            <a class="button secondary small" href="https://scholar.google.com/citations?view_op=search_authors&mauthors=Wen-Long%20Xue" target="_blank" rel="noopener" data-scholar-link>Google Scholar</a>
-          </div>
-        </div>
-        <div class="pub-list" data-publications>
-          <noscript>Please enable JavaScript to load publication data.</noscript>
-        </div>
+      <div class="publication-list" data-publications>
+        <noscript>Please enable JavaScript to load publication data.</noscript>
       </div>
     </section>
 
     <section class="section wrap" id="news">
-      <div class="section-head inline-head">
-        <div>
-          <p class="eyebrow">News</p>
-          <h2>Recent updates</h2>
-        </div>
+      <div class="section-heading">
+        <p class="eyebrow">News</p>
+        <h2>Recent updates</h2>
       </div>
       <div class="news-list" data-news></div>
     </section>
 
-    <section class="section tint" id="people">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">People</p>
-          <h2>Current profile and future group</h2>
-          <p>This section is ready to expand into current members, visitors, collaborators, alumni, and open positions.</p>
-        </div>
-        <div class="people-grid" data-people></div>
+    <section class="section wrap" id="people">
+      <div class="section-heading">
+        <p class="eyebrow">People</p>
+        <h2>Profile and future group</h2>
       </div>
+      <div class="people-list" data-people></div>
     </section>
 
-    <section class="section contact" id="contact">
-      <div class="wrap contact-layout">
+    <section class="section contact-section" id="contact">
+      <div class="wrap contact-inner">
         <div>
           <p class="eyebrow">Contact</p>
           <h2 data-contact-heading>Collaborations and enquiries</h2>
@@ -153,25 +92,23 @@
         </div>
         <address>
           <strong data-contact-name>Wenlong Xue</strong><br />
-          <span data-contact-role>MSCA Postdoctoral Fellow</span><br />
-          <span data-contact-affiliation>KU Leuven</span><br />
+          <span data-contact-role>MSCA Postdoctoral Fellow, KU Leuven</span><br />
+          <span data-contact-affiliation>cMACS, KU Leuven</span><br />
           <span data-contact-location>Leuven, Belgium</span><br />
           <a href="mailto:xuetudo@gmail.com" data-contact-email>xuetudo@gmail.com</a>
-          <div class="contact-links">
+          <span class="contact-links">
             <a href="https://orcid.org/0000-0003-0778-2300" target="_blank" rel="noopener" data-orcid-link>ORCID</a>
-            <a href="https://www.kuleuven.be/wieiswie/en/person/u0177372" target="_blank" rel="noopener" data-ku-link>KU Leuven profile</a>
-          </div>
+            <a href="https://www.kuleuven.be/wieiswie/en/person/u0177372" target="_blank" rel="noopener" data-ku-link>KU Leuven</a>
+          </span>
         </address>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap footer-grid">
-      <p>&copy; <span data-year></span> <span data-footer-name>Wenlong Xue</span>. Built for GitHub Pages.</p>
-      <p>
-        <a href="#top">Back to top</a>
-      </p>
+    <div class="wrap footer-inner">
+      <p>&copy; <span data-year></span> <span data-footer-name>Wenlong Xue</span>.</p>
+      <a href="#top">Back to top</a>
     </div>
   </footer>
 

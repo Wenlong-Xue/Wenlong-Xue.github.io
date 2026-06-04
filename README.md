@@ -23,7 +23,7 @@ Use `edit.html` in Microsoft Edge or Google Chrome.
 
 1. Click **Open folder**.
 2. Choose the website root folder, the one that contains `index.html`.
-3. Edit profile, homepage text, research directions, platforms, publications, news, and people.
+3. Edit profile, homepage text, research directions, publications, news, and people.
 4. Click **Save to folder**.
 5. Refresh the main website tab.
 
@@ -31,7 +31,7 @@ If folder saving is not available, click **Download JSON** and place the downloa
 
 ## Content files
 
-- `content/site.json`: profile, hero text, research, platforms, metrics, and contact.
+- `content/site.json`: profile, hero text, about text, research, and contact.
 - `content/publications.json`: publication list shown on the website.
 - `content/news.json`: recent updates.
 - `content/people.json`: current profile and future group members.
