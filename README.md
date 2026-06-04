@@ -14,6 +14,7 @@ Then open:
 
 - Website: `http://localhost:8000/`
 - About: `http://localhost:8000/about.html`
+- MOF glasses SEO page: `http://localhost:8000/mof-glasses.html`
 - Publications: `http://localhost:8000/publications.html`
 - Editor: `http://localhost:8000/edit.html`
 
@@ -38,8 +39,11 @@ If folder saving is not available, click **Download JSON** and place the downloa
 - `content/publications.json`: publication list shown on `publications.html`, grouped by year.
 - `content/news.json`: recent updates.
 - `content/people.json`: current profile and future group members, including photo paths.
+- `sitemap.xml` and `robots.txt`: crawl discovery files for GitHub Pages.
 
 The public pages load these files automatically, so routine updates should not require editing the HTML files.
+
+Public HTML pages include canonical URLs, meta descriptions, and Schema.org `ProfilePage` / `Person` JSON-LD for search engines.
 
 ## Publication updates
 

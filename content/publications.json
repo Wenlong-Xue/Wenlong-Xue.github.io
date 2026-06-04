@@ -14,7 +14,9 @@
     "doi": "10.1038/s41557-026-02115-8",
     "url": "https://doi.org/10.1038/s41557-026-02115-8",
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZLglYGcAAAAJ&pagesize=100&citation_for_view=ZLglYGcAAAAJ:RGFaLdJalmkC",
-    "tags": []
+    "selected": true,
+    "keywords": ["MOF glasses", "zeolitic imidazolate framework glasses", "alkali-ion modification", "hybrid glass frameworks"],
+    "tags": ["MOF glasses", "ZIF glasses", "hybrid glass frameworks"]
   },
   {
     "title": "Facile Melt-Quenched Glass Formation of Zwitterion-Modified Carboxylate Metal-Organic Frameworks",
@@ -31,7 +33,9 @@
     "doi": "10.1021/acs.chemmater.5c03043",
     "url": "https://doi.org/10.1021/acs.chemmater.5c03043",
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZLglYGcAAAAJ&pagesize=100&citation_for_view=ZLglYGcAAAAJ:GnPB-g6toBAC",
-    "tags": []
+    "selected": true,
+    "keywords": ["metal-organic framework glasses", "melt quenching", "carboxylate frameworks", "hybrid glass frameworks"],
+    "tags": ["MOF glasses", "melt quenching", "carboxylate frameworks"]
   },
   {
     "title": "Zinc halide flux-assisted vitrification of metal-organic frameworks enables chemical diversification and tunable gas sorption",
@@ -116,7 +120,9 @@
     "doi": "10.1002/anie.202506570",
     "url": "https://doi.org/10.1002/anie.202506570",
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZLglYGcAAAAJ&pagesize=100&citation_for_view=ZLglYGcAAAAJ:TQgYirikUcIC",
-    "tags": []
+    "selected": true,
+    "keywords": ["meltable MOFs", "MOF liquids", "hybrid glass frameworks", "coenzyme regeneration"],
+    "tags": ["meltable MOFs", "MOF liquids", "hybrid frameworks"]
   },
   {
     "title": "Mechanochemical Synthesis Enables Melting, Glass Formation and Glass-Ceramic Conversion in a Cadmium-Based Zeolitic Imidazolate Framework",
@@ -133,7 +139,9 @@
     "doi": "10.1021/jacs.5c02767",
     "url": "https://doi.org/10.1021/jacs.5c02767",
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZLglYGcAAAAJ&pagesize=100&citation_for_view=ZLglYGcAAAAJ:QIV2ME_5wuYC",
-    "tags": []
+    "selected": true,
+    "keywords": ["mechanochemical synthesis", "glass formation", "glass-ceramic conversion", "zeolitic imidazolate frameworks"],
+    "tags": ["mechanochemical synthesis", "glass formation", "ZIF"]
   },
   {
     "title": "Defect Identification in Zeolitic Imidazolate Framework Glasses by Solid-State NMR Spectroscopy Using 13CO2 as Probe",
@@ -167,7 +175,9 @@
     "doi": "10.1016/j.advmem.2025.100182",
     "url": "https://doi.org/10.1016/j.advmem.2025.100182",
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZLglYGcAAAAJ&pagesize=100&citation_for_view=ZLglYGcAAAAJ:TFP_iSt0sucC",
-    "tags": []
+    "selected": true,
+    "keywords": ["thin films", "flux melting", "UiO-67", "nanofiltration", "MOF processing"],
+    "tags": ["thin films", "flux melting", "nanofiltration"]
   },
   {
     "title": "Xenon adsorption-induced flexibility of the zeolitic imidazolate framework ZIF-4 observed by in situ 129 Xe NMR spectroscopy",
@@ -201,7 +211,9 @@
     "doi": "10.1002/anie.202405307",
     "url": "https://doi.org/10.1002/anie.202405307",
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZLglYGcAAAAJ&pagesize=100&citation_for_view=ZLglYGcAAAAJ:NMxIlDl6LWMC",
-    "tags": []
+    "selected": true,
+    "keywords": ["mechanochemical synthesis", "MOF glasses", "zeolitic imidazolate frameworks", "amorphisation"],
+    "tags": ["mechanochemistry", "MOF glasses", "amorphisation"]
   },
   {
     "title": "Einblicke in die Mechanochemische Glasbildung von Zeolithischen Imidazolat-Gerüstverbindungen",
@@ -235,7 +247,9 @@
     "doi": "10.1038/s41467-024-48703-5",
     "url": "https://doi.org/10.1038/s41467-024-48703-5",
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZLglYGcAAAAJ&pagesize=100&citation_for_view=ZLglYGcAAAAJ:blknAaTinKkC",
-    "tags": []
+    "selected": true,
+    "keywords": ["porous MOF liquids", "metal-organic framework glasses", "solvent-assisted linker exchange", "ZIF-8"],
+    "tags": ["porous MOF liquids", "MOF glasses", "linker exchange"]
   },
   {
     "title": "Melt-quenched glass formation of a family of metal-carboxylate frameworks",
@@ -252,7 +266,9 @@
     "doi": "10.1038/s41467-024-46311-x",
     "url": "https://doi.org/10.1038/s41467-024-46311-x",
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZLglYGcAAAAJ&pagesize=100&citation_for_view=ZLglYGcAAAAJ:hMod-77fHWUC",
-    "tags": []
+    "selected": true,
+    "keywords": ["metal-carboxylate frameworks", "melt-quenched glass", "metal-organic framework glasses", "framework chemistry"],
+    "tags": ["metal-carboxylate frameworks", "melt-quenched glass", "MOF glasses"]
   },
   {
     "title": "Pore Structure Modulation in Kirigamic Zeolitic Imidazolate Framework",
@@ -320,7 +336,9 @@
     "doi": "10.1021/jacs.3c01933",
     "url": "https://doi.org/10.1021/jacs.3c01933",
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZLglYGcAAAAJ&pagesize=100&citation_for_view=ZLglYGcAAAAJ:YFjsv_pBGBYC",
-    "tags": []
+    "selected": true,
+    "keywords": ["liquid-liquid transitions", "glass formation", "zeolitic imidazolate frameworks", "MOF glasses"],
+    "tags": ["liquid-liquid transitions", "glass formation", "ZIF"]
   },
   {
     "title": "Solid ionic liquids with macro-microporous structure for efficient heterogeneous catalysis of biodiesel",
@@ -371,7 +389,9 @@
     "doi": "10.1002/anie.202010783",
     "url": "https://doi.org/10.1002/anie.202010783",
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZLglYGcAAAAJ&pagesize=100&citation_for_view=ZLglYGcAAAAJ:hFOr9nPyWt4C",
-    "tags": []
+    "selected": true,
+    "keywords": ["proton conduction", "ionic liquids", "metal-organic frameworks", "amorphous proton conductors"],
+    "tags": ["proton conduction", "ionic liquids", "MOFs"]
   },
   {
     "title": "Reticular Chemistry for Ionic Liquid-Functionalized Metal-Organic Frameworks with High Selectivity for CO2",

@@ -3,11 +3,12 @@ const qsa = (selector, root = document) => Array.from(root.querySelectorAll(sele
 
 const DEFAULT_LANGUAGE = "en";
 const STORAGE_LANGUAGE_KEY = "wenlongSiteLanguage";
-const DATA_VERSION = "bilingual-20260604b";
+const DATA_VERSION = "seo-20260604";
 const PAGE_TITLE_KEYS = {
   home: "siteTitle",
   about: "aboutTitle",
   research: "researchTitle",
+  "mof-glasses": "mofGlassesTitle",
   publications: "publicationsTitle",
   news: "newsTitle",
   people: "peopleTitle",
@@ -16,10 +17,21 @@ const PAGE_TITLE_KEYS = {
 const PAGE_NAMES = {
   about: "About",
   research: "Research",
+  "mof-glasses": "MOF Glasses",
   publications: "Publications",
   news: "News",
   people: "People",
   contact: "Contact"
+};
+const EN_PAGE_TITLES = {
+  home: "Wenlong Xue | MOF Glasses & Hybrid Glass Frameworks",
+  about: "About Wenlong Xue | MOF Glasses Researcher",
+  research: "Research on MOF Glasses, Proton Conductors & Devices | Wenlong Xue",
+  "mof-glasses": "MOF Glasses & Hybrid Glass Frameworks | Wenlong Xue",
+  publications: "Publications on MOF Glasses & Hybrid Frameworks | Wenlong Xue",
+  news: "News | Wenlong Xue MOF Glasses Research",
+  people: "People | Wenlong Xue Research Group",
+  contact: "Contact Wenlong Xue | MOF Glasses Research"
 };
 
 let currentLanguage = DEFAULT_LANGUAGE;
@@ -117,8 +129,9 @@ function localizeArray(items = [], key) {
 
 function setActiveNav() {
   const page = document.body.dataset.page || "home";
+  const activePage = document.body.dataset.navActive || page;
   qsa("[data-nav-page]").forEach((link) => {
-    const isActive = link.dataset.navPage === page;
+    const isActive = link.dataset.navPage === activePage;
     link.classList.toggle("active", isActive);
     if (isActive) {
       link.setAttribute("aria-current", "page");
@@ -137,9 +150,7 @@ function setPageTitle(profile = {}) {
   }
 
   const name = profile.name || "Wenlong Xue";
-  document.title = page === "home"
-    ? `${name} | Hybrid Glass Frameworks`
-    : `${PAGE_NAMES[page] || "Wenlong Xue"} | ${name}`;
+  document.title = EN_PAGE_TITLES[page] || `${PAGE_NAMES[page] || "Wenlong Xue"} | ${name}`;
 }
 
 async function loadJSON(path) {
@@ -233,6 +244,7 @@ function renderTags(tags) {
 
 function renderPublications(items) {
   const target = qs("[data-publications]");
+  renderSelectedPublications(items);
   if (!target) return;
 
   const groups = items.reduce((map, pub) => {
@@ -250,6 +262,28 @@ function renderPublications(items) {
       </div>
     </section>
   `).join("");
+}
+
+function renderSelectedPublications(items) {
+  const target = qs("[data-selected-publications]");
+  if (!target) return;
+  const selected = items.filter((pub) => pub.selected);
+  target.innerHTML = selected.map(renderSelectedPublicationItem).join("");
+}
+
+function renderSelectedPublicationItem(pub) {
+  const keywords = pub.keywords || pub.tags || [];
+  return `
+    <article class="selected-publication">
+      <h3>${escapeHTML(pub.title)}</h3>
+      <p class="publication-authors">${escapeHTML(pub.authors)}</p>
+      <p class="publication-meta">${escapeHTML([pub.journal, pub.year].filter(Boolean).join(", "))}</p>
+      <div class="selected-publication-footer">
+        ${pub.url ? `<a class="publication-link" href="${escapeHTML(pub.url)}" target="_blank" rel="noopener">DOI</a>` : ""}
+        ${keywords.length ? `<p class="keyword-line"><strong>Keywords:</strong> ${keywords.map(escapeHTML).join(", ")}</p>` : ""}
+      </div>
+    </article>
+  `;
 }
 
 function formatCitation(pub) {

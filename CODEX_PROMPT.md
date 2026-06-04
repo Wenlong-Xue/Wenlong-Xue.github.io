@@ -6,9 +6,10 @@ You are helping maintain an academic website for Wenlong Xue. The site should re
 
 - Plain HTML, CSS, and JavaScript.
 - No build step and no backend.
-- `index.html` is the home page. About, Research, Publications, News, People, and Contact are separate pages.
+- `index.html` is the home page. About, Research, MOF Glasses, Publications, News, People, and Contact are separate pages.
 - `edit.html` is a local browser-based editor for JSON content.
 - Public content is stored under `content/`.
+- `sitemap.xml` and `robots.txt` live at the root for search-engine discovery.
 
 ## Editing rules
 
@@ -21,6 +22,8 @@ Routine content updates should be made in JSON:
 - `content/people.json`: profile and group members, including photo paths.
 
 Avoid hard-coding content into `index.html` unless the layout itself needs to change.
+
+Preserve canonical URLs, meta descriptions, index/follow robots tags, and Schema.org `ProfilePage` / `Person` JSON-LD when editing public pages.
 
 ## Design direction
 
