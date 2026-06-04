@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Amorphous coordination network</title>
+  <desc id="desc">Layered abstract coordination network with a glassy disordered structure.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#081116"/>
+      <stop offset=".5" stop-color="#12303a"/>
+      <stop offset="1" stop-color="#285663"/>
+    </linearGradient>
+    <linearGradient id="node" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f3fbfc"/>
+      <stop offset="1" stop-color="#95d4d6"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f7d08d" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#76c6c8" stop-opacity=".38"/>
+    </linearGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000" flood-opacity=".28"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <g filter="url(#soft)" opacity=".78">
+    <circle cx="270" cy="160" r="130" fill="#4eb3bc"/>
+    <circle cx="930" cy="210" r="160" fill="#e3b36a"/>
+    <circle cx="670" cy="635" r="185" fill="#217f8b"/>
+  </g>
+  <path d="M180 620 270 170 760 82 1048 468 698 666Z" fill="url(#glass)" opacity=".2"/>
+  <g fill="none" stroke="#d9eef1" stroke-linecap="round" stroke-width="9" opacity=".34">
+    <path d="M-40 278 C128 118 255 399 430 224 S790 105 960 272 S1110 508 1260 322"/>
+    <path d="M-12 545 C180 410 312 670 514 462 S842 330 1002 510 S1168 704 1290 560"/>
+    <path d="M134 88 C230 198 282 292 418 328 S610 360 710 480 838 618 980 642"/>
+    <path d="M498 -30 C502 132 628 190 734 258 S862 378 848 534"/>
+  </g>
+  <g filter="url(#shadow)">
+    <g fill="url(#node)" stroke="#75b8bf" stroke-width="6">
+      <circle cx="178" cy="286" r="42"/>
+      <circle cx="318" cy="165" r="34"/>
+      <circle cx="435" cy="224" r="45"/>
+      <circle cx="612" cy="144" r="38"/>
+      <circle cx="790" cy="193" r="48"/>
+      <circle cx="960" cy="272" r="40"/>
+      <circle cx="300" cy="502" r="36"/>
+      <circle cx="514" cy="462" r="52"/>
+      <circle cx="698" cy="392" r="36"/>
+      <circle cx="848" cy="534" r="48"/>
+      <circle cx="1002" cy="510" r="36"/>
+    </g>
+    <g fill="#17353e">
+      <circle cx="178" cy="286" r="10"/>
+      <circle cx="318" cy="165" r="8"/>
+      <circle cx="435" cy="224" r="11"/>
+      <circle cx="612" cy="144" r="9"/>
+      <circle cx="790" cy="193" r="12"/>
+      <circle cx="960" cy="272" r="9"/>
+      <circle cx="300" cy="502" r="8"/>
+      <circle cx="514" cy="462" r="12"/>
+      <circle cx="698" cy="392" r="8"/>
+      <circle cx="848" cy="534" r="11"/>
+      <circle cx="1002" cy="510" r="8"/>
+    </g>
+  </g>
+  <rect width="1200" height="760" fill="#000" opacity=".06"/>
+</svg>

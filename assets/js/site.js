@@ -1,6 +1,30 @@
 const qs = (selector, root = document) => root.querySelector(selector);
 const qsa = (selector, root = document) => Array.from(root.querySelectorAll(selector));
 
+const DEFAULT_LANGUAGE = "en";
+const STORAGE_LANGUAGE_KEY = "wenlongSiteLanguage";
+const PAGE_TITLE_KEYS = {
+  home: "siteTitle",
+  about: "aboutTitle",
+  research: "researchTitle",
+  publications: "publicationsTitle",
+  news: "newsTitle",
+  people: "peopleTitle",
+  contact: "contactTitle"
+};
+const PAGE_NAMES = {
+  about: "About",
+  research: "Research",
+  publications: "Publications",
+  news: "News",
+  people: "People",
+  contact: "Contact"
+};
+
+let currentLanguage = DEFAULT_LANGUAGE;
+let translations = {};
+let contentCache = null;
+
 const escapeHTML = (value = "") => String(value)
   .replaceAll("&", "&amp;")
   .replaceAll("<", "&lt;")
@@ -18,11 +42,103 @@ function setLink(selector, url) {
   if (element && url) element.href = url;
 }
 
+function setImage(selector, src, alt) {
+  const element = qs(selector);
+  if (!element) return;
+  if (src) element.src = src;
+  if (alt) element.alt = alt;
+}
+
+function getNestedValue(source, path) {
+  return path.split(".").reduce((value, key) => value?.[key], source);
+}
+
+function getTranslation(path, fallback = "") {
+  if (currentLanguage === DEFAULT_LANGUAGE) return fallback;
+  return getNestedValue(translations[currentLanguage], path) ?? fallback;
+}
+
+function getInitialLanguage() {
+  const params = new URLSearchParams(window.location.search);
+  const requested = params.get("lang") || window.localStorage.getItem(STORAGE_LANGUAGE_KEY);
+  return requested === "zh" ? "zh" : DEFAULT_LANGUAGE;
+}
+
+function captureTranslationDefaults() {
+  qsa("[data-i18n]").forEach((element) => {
+    if (!element.dataset.i18nDefault) element.dataset.i18nDefault = element.textContent;
+  });
+}
+
+function applyStaticTranslations() {
+  document.documentElement.lang = currentLanguage === "zh" ? "zh-CN" : "en";
+  qsa("[data-i18n]").forEach((element) => {
+    const fallback = element.dataset.i18nDefault || element.textContent;
+    element.textContent = getTranslation(element.dataset.i18n, fallback);
+  });
+}
+
+function updateLanguageSwitch() {
+  qsa("[data-lang-option]").forEach((button) => {
+    const isActive = button.dataset.langOption === currentLanguage;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+}
+
+function mergeTranslatedArray(base = [], translated = []) {
+  return base.map((item, index) => ({ ...item, ...(translated[index] || {}) }));
+}
+
+function localizeSite(site = {}) {
+  const localized = translations[currentLanguage] || {};
+  const research = site.research || {};
+  const translatedResearch = localized.research || {};
+
+  return {
+    ...site,
+    profile: { ...(site.profile || {}), ...(localized.profile || {}) },
+    hero: { ...(site.hero || {}), ...(localized.hero || {}) },
+    about: { ...(site.about || {}), ...(localized.about || {}) },
+    research: {
+      ...research,
+      ...translatedResearch,
+      items: mergeTranslatedArray(research.items || [], translatedResearch.items || [])
+    },
+    contact: { ...(site.contact || {}), ...(localized.contact || {}) }
+  };
+}
+
+function localizeArray(items = [], key) {
+  const translated = translations[currentLanguage]?.[key] || [];
+  return mergeTranslatedArray(items, translated);
+}
+
 function setActiveNav() {
   const page = document.body.dataset.page || "home";
   qsa("[data-nav-page]").forEach((link) => {
-    if (link.dataset.navPage === page) link.classList.add("active");
+    const isActive = link.dataset.navPage === page;
+    link.classList.toggle("active", isActive);
+    if (isActive) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
   });
+}
+
+function setPageTitle(profile = {}) {
+  const page = document.body.dataset.page || "home";
+  const translatedTitle = getTranslation(`meta.${PAGE_TITLE_KEYS[page]}`, "");
+  if (translatedTitle) {
+    document.title = translatedTitle;
+    return;
+  }
+
+  const name = profile.name || "Wenlong Xue";
+  document.title = page === "home"
+    ? `${name} | Hybrid Glass Frameworks`
+    : `${PAGE_NAMES[page] || "Wenlong Xue"} | ${name}`;
 }
 
 async function loadJSON(path) {
@@ -51,24 +167,23 @@ function renderSite(site) {
   const research = site.research || {};
   const contact = site.contact || {};
 
-  if ((document.body.dataset.page || "home") === "home") {
-    document.title = `${profile.name || "Wenlong Xue"} | Hybrid Glass Frameworks`;
-  }
-
   setText("[data-profile-name]", profile.name);
   setText("[data-profile-role-full]", profile.roleFull || profile.role);
   setText("[data-profile-affiliation]", profile.affiliation);
   setText("[data-profile-location]", profile.location);
+  setImage("[data-profile-photo]", profile.photoUrl, profile.photoAlt);
 
   setText("[data-hero-eyebrow]", hero.eyebrow);
   setText("[data-hero-title]", hero.title || profile.name);
   setText("[data-hero-subtitle]", hero.subtitle);
 
-  const aboutTarget = qs("[data-about-text]");
-  if (aboutTarget) {
-    const paragraphs = about.paragraphs?.length ? about.paragraphs : [hero.lead].filter(Boolean);
-    aboutTarget.innerHTML = paragraphs.map((paragraph) => `<p>${escapeHTML(paragraph)}</p>`).join("");
-  }
+  qsa("[data-about-text]").forEach((target) => {
+    const isHomeSummary = target.dataset.aboutText === "home";
+    const paragraphs = isHomeSummary
+      ? [hero.lead || about.paragraphs?.[0]].filter(Boolean)
+      : (about.paragraphs?.length ? about.paragraphs : [hero.lead].filter(Boolean));
+    target.innerHTML = paragraphs.map((paragraph) => `<p>${escapeHTML(paragraph)}</p>`).join("");
+  });
 
   setText("[data-research-heading]", research.heading);
   setText("[data-research-intro]", research.intro);
@@ -97,7 +212,9 @@ function renderResearch(items) {
   if (!target) return;
   target.innerHTML = items.map((item) => `
     <article class="research-item">
-      <div class="research-image" aria-hidden="true"></div>
+      <figure class="research-image">
+        <img src="${escapeHTML(item.image || "assets/img/network.svg")}" alt="${escapeHTML(item.imageAlt || item.title || "")}" />
+      </figure>
       <div class="research-copy">
         <h3>${escapeHTML(item.title)}</h3>
         <p>${escapeHTML(item.text)}</p>
@@ -144,16 +261,19 @@ function formatCitation(pub) {
 
 function renderPublicationItem(pub) {
   const citation = formatCitation(pub);
+  const doiLabel = getTranslation("labels.doi", "DOI");
+  const linkLabel = getTranslation("labels.link", "Link");
+  const scholarLabel = getTranslation("labels.scholar", "Scholar");
   return `
     <article class="publication-item">
       <div class="publication-body">
-        <h3>${escapeHTML(pub.title)}</h3>
+        <h3 class="publication-title">${escapeHTML(pub.title)}</h3>
         <p class="publication-authors">${escapeHTML(pub.authors)}</p>
         <p class="publication-meta">${citation}</p>
       </div>
       <div class="publication-actions">
-        ${pub.url ? `<a class="publication-link" href="${escapeHTML(pub.url)}" target="_blank" rel="noopener">${pub.doi ? "DOI" : "Link"}</a>` : ""}
-        ${pub.scholarUrl ? `<a class="publication-link subtle" href="${escapeHTML(pub.scholarUrl)}" target="_blank" rel="noopener">Scholar</a>` : ""}
+        ${pub.url ? `<a class="publication-link" href="${escapeHTML(pub.url)}" target="_blank" rel="noopener">${pub.doi ? escapeHTML(doiLabel) : escapeHTML(linkLabel)}</a>` : ""}
+        ${pub.scholarUrl ? `<a class="publication-link subtle" href="${escapeHTML(pub.scholarUrl)}" target="_blank" rel="noopener">${escapeHTML(scholarLabel)}</a>` : ""}
       </div>
     </article>
   `;
@@ -176,10 +296,15 @@ function renderPeople(items) {
   if (!target) return;
   target.innerHTML = items.map((person) => `
     <article class="person-item">
-      <div class="person-role">${escapeHTML(person.role)}</div>
-      <h3>${escapeHTML(person.name)}</h3>
-      <p>${escapeHTML(person.bio)}</p>
-      ${renderPersonLinks(person.links || [])}
+      <figure class="person-photo">
+        <img src="${escapeHTML(person.photo || "assets/img/member-placeholder.svg")}" alt="${escapeHTML(person.photoAlt || person.name || "")}" />
+      </figure>
+      <div class="person-copy">
+        <div class="person-role">${escapeHTML(person.role)}</div>
+        <h3>${escapeHTML(person.name)}</h3>
+        <p>${escapeHTML(person.bio)}</p>
+        ${renderPersonLinks(person.links || [])}
+      </div>
     </article>
   `).join("");
 }
@@ -209,26 +334,62 @@ function setupNavigation() {
   });
 }
 
+function setupLanguageSwitch() {
+  qsa("[data-lang-option]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const nextLanguage = button.dataset.langOption === "zh" ? "zh" : DEFAULT_LANGUAGE;
+      if (nextLanguage === currentLanguage) return;
+      currentLanguage = nextLanguage;
+      window.localStorage.setItem(STORAGE_LANGUAGE_KEY, currentLanguage);
+      if (contentCache) renderAll(contentCache);
+    });
+  });
+}
+
+function renderAll(data) {
+  const site = localizeSite(data.site || {});
+  const news = localizeArray(data.news || [], "news");
+  const people = localizeArray(data.people || [], "people");
+
+  applyStaticTranslations();
+  updateLanguageSwitch();
+  setActiveNav();
+  renderSite(site);
+  renderPublications(data.publications || []);
+  renderNews(news);
+  renderPeople(people);
+  setPageTitle(site.profile || {});
+}
+
 async function init() {
+  currentLanguage = getInitialLanguage();
+  captureTranslationDefaults();
   setText("[data-year]", new Date().getFullYear());
   setupNavigation();
-  setActiveNav();
+  setupLanguageSwitch();
 
   try {
+    const i18n = await loadJSON("content/i18n.json").catch(() => ({}));
+    translations = i18n || {};
     const draft = loadDraftData();
-    const [site, publications, news, people] = draft
-      ? [draft.site, draft.publications, draft.news, draft.people]
-      : await Promise.all([
+    if (draft) {
+      contentCache = {
+        site: draft.site,
+        publications: draft.publications,
+        news: draft.news,
+        people: draft.people
+      };
+    } else {
+      const [site, publications, news, people] = await Promise.all([
         loadJSON("content/site.json"),
         loadJSON("content/publications.json"),
         loadJSON("content/news.json"),
         loadJSON("content/people.json")
       ]);
+      contentCache = { site, publications, news, people };
+    }
 
-    renderSite(site);
-    renderPublications(publications || []);
-    renderNews(news || []);
-    renderPeople(people || []);
+    renderAll(contentCache);
   } catch (error) {
     console.error(error);
     const publicationTarget = qs("[data-publications]");

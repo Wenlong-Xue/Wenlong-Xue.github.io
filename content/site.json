@@ -7,6 +7,8 @@
     "affiliation": "cMACS, Department of Microbial and Molecular Systems, KU Leuven",
     "location": "Leuven, Belgium",
     "email": "xuetudo@gmail.com",
+    "photoUrl": "assets/img/wenlong-xue.png",
+    "photoAlt": "Portrait of Wenlong Xue",
     "scholarUrl": "https://scholar.google.com/citations?user=ZLglYGcAAAAJ&hl=en",
     "orcidUrl": "https://orcid.org/0000-0003-0778-2300",
     "kuProfileUrl": "https://www.kuleuven.be/wieiswie/en/person/u0177372"
@@ -32,17 +34,23 @@
       {
         "title": "Amorphous coordination networks",
         "text": "Direct synthesis and transformation routes are used to access bulk hybrid glasses and disordered coordination networks without relying only on traditional melt-quenching.",
-        "tags": ["synthesis", "MOF glass"]
+        "tags": ["synthesis", "MOF glass"],
+        "image": "assets/img/research-amorphous.svg",
+        "imageAlt": "Abstract amorphous coordination network"
       },
       {
         "title": "Local structure and transport",
         "text": "Synchrotron PDF, XAS, solid-state NMR, impedance spectroscopy, and modelling are combined to understand how local order supports proton and ion transport.",
-        "tags": ["structure", "transport"]
+        "tags": ["structure", "transport"],
+        "image": "assets/img/research-transport.svg",
+        "imageAlt": "Abstract scattering rings and transport pathways"
       },
       {
         "title": "Processing for energy devices",
         "text": "Thin films, membranes, and patterned architectures are developed to connect hybrid glass chemistry with medium-temperature fuel cells, electrolysers, and separation systems.",
-        "tags": ["thin films", "devices"]
+        "tags": ["thin films", "devices"],
+        "image": "assets/img/research-devices.svg",
+        "imageAlt": "Abstract hybrid glass film device architecture"
       }
     ]
   },

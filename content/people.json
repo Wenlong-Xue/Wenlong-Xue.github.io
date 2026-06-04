@@ -2,6 +2,8 @@
   {
     "name": "Wenlong Xue",
     "role": "MSCA Postdoctoral Fellow, KU Leuven",
+    "photo": "assets/img/wenlong-xue.png",
+    "photoAlt": "Portrait of Wenlong Xue",
     "bio": "Wenlong develops hybrid glass frameworks, MOF glasses, and amorphous proton conductors, combining synthesis, structure analysis, transport measurements, and device-oriented processing.",
     "links": [
       {
@@ -17,6 +19,8 @@
   {
     "name": "Future group members",
     "role": "Students, postdocs, visitors, and collaborators",
+    "photo": "assets/img/member-placeholder.svg",
+    "photoAlt": "Future group member photo placeholder",
     "bio": "This placeholder can later be replaced with individual profiles, research topics, photos, alumni information, and open positions.",
     "links": []
   }

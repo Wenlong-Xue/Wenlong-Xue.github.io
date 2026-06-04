@@ -1,0 +1,143 @@
+{
+  "zh": {
+    "meta": {
+      "siteTitle": "薛文龙 | 杂化玻璃框架",
+      "aboutTitle": "个人简介 | 薛文龙",
+      "researchTitle": "研究方向 | 薛文龙",
+      "publicationsTitle": "论文发表 | 薛文龙",
+      "newsTitle": "动态 | 薛文龙",
+      "peopleTitle": "成员 | 薛文龙",
+      "contactTitle": "联系 | 薛文龙"
+    },
+    "nav": {
+      "home": "首页",
+      "about": "个人",
+      "research": "研究",
+      "publications": "论文",
+      "news": "动态",
+      "people": "成员",
+      "contact": "联系",
+      "menu": "菜单"
+    },
+    "labels": {
+      "researchAreas": "研究方向",
+      "readResearch": "查看研究方向",
+      "backToTop": "返回顶部",
+      "googleScholar": "谷歌学术",
+      "doi": "DOI",
+      "link": "链接",
+      "scholar": "Scholar"
+    },
+    "pages": {
+      "about": {
+        "eyebrow": "个人简介",
+        "heading": "Wenlong Xue / 薛文龙",
+        "lead": "MSCA 博士后研究员，研究方向为 MOF 玻璃、无定形质子导体以及面向器件的杂化玻璃框架。",
+        "detailHeading": "研究兴趣",
+        "linksHeading": "个人链接"
+      },
+      "research": {
+        "eyebrow": "研究方向"
+      },
+      "publications": {
+        "eyebrow": "论文发表",
+        "heading": "按年份归类的论文",
+        "intro": "论文信息根据 Google Scholar 主页整理，并按年份归类。"
+      },
+      "news": {
+        "eyebrow": "动态",
+        "heading": "近期动态"
+      },
+      "people": {
+        "eyebrow": "成员",
+        "heading": "成员与未来团队"
+      }
+    },
+    "profile": {
+      "name": "薛文龙",
+      "role": "MSCA 博士后研究员",
+      "roleFull": "MSCA 博士后研究员，KU Leuven",
+      "affiliation": "cMACS，微生物与分子系统系，KU Leuven",
+      "location": "比利时鲁汶",
+      "photoAlt": "薛文龙肖像"
+    },
+    "hero": {
+      "eyebrow": "MOF 玻璃 / 无定形质子导体 / 器件集成",
+      "title": "薛文龙",
+      "subtitle": "面向能源与分离技术的杂化玻璃框架。",
+      "lead": "研究聚焦配位网络、玻璃形成、质子传输和面向器件加工之间的交叉。"
+    },
+    "about": {
+      "heading": "杂化玻璃框架",
+      "paragraphs": [
+        "薛文龙的研究关注杂化玻璃框架、MOF 玻璃和无定形质子导体的化学与加工。研究将配位网络设计与玻璃形成、机械化学、熔融加工、薄膜制备和结构-性能分析联系起来。",
+        "一个核心主题是将有序晶态框架转化为无序但功能化的材料。这类杂化玻璃兼具局域配位有序性、可加工性、力学稳定性和传输性能，能够获得传统晶态固体难以实现的材料行为。",
+        "目前在 KU Leuven 的工作聚焦于直接合成无定形网络、解析局域结构与传输机制，以及将质子传导杂化玻璃集成到能源和分离技术中的加工路线。"
+      ]
+    },
+    "research": {
+      "heading": "杂化材料：晶体、液体、玻璃与器件",
+      "intro": "研究围绕配位网络在晶态和无定形状态之间的合成、结构和加工展开。",
+      "items": [
+        {
+          "title": "无定形配位网络",
+          "text": "通过直接合成和结构转化路线制备体相杂化玻璃与无序配位网络，而不局限于传统熔融淬火方法。",
+          "tags": ["合成", "MOF 玻璃"],
+          "imageAlt": "无定形配位网络示意图"
+        },
+        {
+          "title": "局域结构与传输",
+          "text": "结合同步辐射 PDF、XAS、固态 NMR、阻抗谱和模拟，理解局域有序结构如何支撑质子和离子传输。",
+          "tags": ["结构", "传输"],
+          "imageAlt": "散射环和传输路径示意图"
+        },
+        {
+          "title": "面向能源器件的加工",
+          "text": "发展薄膜、膜材料和图案化结构，将杂化玻璃化学与中温燃料电池、电解槽和分离系统联系起来。",
+          "tags": ["薄膜", "器件"],
+          "imageAlt": "杂化玻璃薄膜器件结构示意图"
+        }
+      ]
+    },
+    "contact": {
+      "heading": "合作与咨询",
+      "text": "欢迎就杂化玻璃、MOF 加工、质子传导材料、同步辐射实验、学生项目和合作研究进行交流。"
+    },
+    "people": [
+      {
+        "name": "薛文龙",
+        "role": "MSCA 博士后研究员，KU Leuven",
+        "photoAlt": "薛文龙肖像",
+        "bio": "薛文龙从事杂化玻璃框架、MOF 玻璃和无定形质子导体研究，结合合成、结构分析、传输测试和面向器件的加工。"
+      },
+      {
+        "name": "未来团队成员",
+        "role": "学生、博士后、访问学者与合作者",
+        "photoAlt": "未来团队成员照片占位图",
+        "bio": "这里之后可以替换为个人简介、研究主题、照片、校友信息和开放职位。"
+      }
+    ],
+    "news": [
+      {
+        "date": "2026",
+        "title": "碱金属离子改性 ZIF 玻璃的新结果",
+        "text": "近期工作报道了通过碱金属离子改性调控沸石咪唑酯框架玻璃的新路线。"
+      },
+      {
+        "date": "2026",
+        "title": "杂化玻璃和膜加工方向持续拓展",
+        "text": "当前项目将可熔融或可直接合成的框架材料与薄膜加工、纳滤和质子传输筛选联系起来。"
+      },
+      {
+        "date": "2025",
+        "title": "在 KU Leuven 开展 MSCA 博士后项目",
+        "text": "MOPOWER 项目致力于开发 MOF 衍生的质子传导杂化玻璃，用于能源技术。"
+      },
+      {
+        "date": "2024-2025",
+        "title": "MOF 玻璃相关论文发表于 Nature Communications、JACS、Angewandte Chemie 和 Chemistry of Materials",
+        "text": "近期论文涵盖多孔 MOF 液体和玻璃、金属羧酸盐框架玻璃、机械化学成玻璃以及缺陷识别等方向。"
+      }
+    ]
+  }
+}

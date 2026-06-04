@@ -13,6 +13,7 @@ python -m http.server 8000
 Then open:
 
 - Website: `http://localhost:8000/`
+- About: `http://localhost:8000/about.html`
 - Publications: `http://localhost:8000/publications.html`
 - Editor: `http://localhost:8000/edit.html`
 
@@ -32,12 +33,13 @@ If folder saving is not available, click **Download JSON** and place the downloa
 
 ## Content files
 
-- `content/site.json`: profile, hero text, about text, research, and contact.
+- `content/site.json`: profile, hero text, about text, research, images, and contact.
+- `content/i18n.json`: Chinese translations for public page labels and editable content.
 - `content/publications.json`: publication list shown on `publications.html`, grouped by year.
 - `content/news.json`: recent updates.
-- `content/people.json`: current profile and future group members.
+- `content/people.json`: current profile and future group members, including photo paths.
 
-The homepage loads these files automatically, so routine updates should not require editing `index.html`.
+The public pages load these files automatically, so routine updates should not require editing the HTML files.
 
 ## Publication updates
 
@@ -46,11 +48,14 @@ Publication entries support:
 - `title`
 - `authors`
 - `journal`
+- `volume`
+- `issue`
+- `pages`
 - `year`
+- `type`
 - `doi`
 - `url`
-- `tags`
-- `selected`
+- `scholarUrl`
 
 The publication list is structured from the Google Scholar profile and includes complete author strings, journal details, DOI or article links, and Scholar detail links. DOI links appear automatically when `url` is filled.
 

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-labelledby="title desc">
+  <title id="title">Member photo placeholder</title>
+  <desc id="desc">Neutral placeholder for a future group member photograph.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#edf2f1"/>
+      <stop offset="1" stop-color="#dce7e4"/>
+    </linearGradient>
+    <linearGradient id="shape" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#adc5c1"/>
+      <stop offset="1" stop-color="#7d9b96"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="900" fill="url(#bg)"/>
+  <g fill="none" stroke="#9fb8b4" stroke-width="8" opacity=".35">
+    <path d="M-60 238 C120 88 260 328 420 196 S680 40 856 230"/>
+    <path d="M-40 640 C148 492 292 742 466 600 S704 456 860 610"/>
+  </g>
+  <circle cx="400" cy="330" r="118" fill="url(#shape)"/>
+  <path d="M188 760c34-146 118-232 212-232s178 86 212 232" fill="url(#shape)"/>
+  <text x="400" y="830" text-anchor="middle" fill="#49635f" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" letter-spacing="4">TO BE ADDED</text>
+</svg>

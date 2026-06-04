@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Local structure and transport</title>
+  <desc id="desc">Abstract scattering rings, coordination sites, and transport pathways.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#111722"/>
+      <stop offset=".52" stop-color="#213048"/>
+      <stop offset="1" stop-color="#5c4a72"/>
+    </linearGradient>
+    <linearGradient id="path" x1="0" x2="1">
+      <stop offset="0" stop-color="#b9ddff" stop-opacity=".34"/>
+      <stop offset=".55" stop-color="#f0cd78" stop-opacity=".82"/>
+      <stop offset="1" stop-color="#9fd6d0" stop-opacity=".38"/>
+    </linearGradient>
+    <radialGradient id="ring" cx=".5" cy=".5" r=".5">
+      <stop offset=".58" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset=".63" stop-color="#d8e8ff" stop-opacity=".5"/>
+      <stop offset=".67" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity=".32"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <circle cx="565" cy="380" r="310" fill="url(#ring)" opacity=".85"/>
+  <circle cx="565" cy="380" r="210" fill="url(#ring)" opacity=".7"/>
+  <circle cx="565" cy="380" r="120" fill="url(#ring)" opacity=".75"/>
+  <g fill="none" stroke="url(#path)" stroke-linecap="round" stroke-width="13">
+    <path d="M92 548 C230 422 290 604 420 486 S604 272 756 354 928 582 1102 420"/>
+    <path d="M134 230 C272 154 330 318 466 268 S686 118 842 248 984 318 1128 226"/>
+  </g>
+  <g opacity=".18" fill="#fff">
+    <path d="M0 642h1200v118H0z"/>
+    <path d="M0 0h1200v96H0z"/>
+  </g>
+  <g filter="url(#shadow)">
+    <g fill="#fff3cf" stroke="#f0c668" stroke-width="7">
+      <circle cx="138" cy="548" r="34"/>
+      <circle cx="420" cy="486" r="40"/>
+      <circle cx="604" cy="334" r="30"/>
+      <circle cx="756" cy="354" r="42"/>
+      <circle cx="972" cy="514" r="34"/>
+    </g>
+    <g fill="#d9edff" stroke="#86b6e5" stroke-width="7">
+      <circle cx="178" cy="222" r="32"/>
+      <circle cx="466" cy="268" r="38"/>
+      <circle cx="680" cy="166" r="36"/>
+      <circle cx="842" cy="248" r="42"/>
+      <circle cx="1068" cy="242" r="31"/>
+    </g>
+    <g fill="#14243b">
+      <circle cx="138" cy="548" r="8"/>
+      <circle cx="420" cy="486" r="9"/>
+      <circle cx="604" cy="334" r="7"/>
+      <circle cx="756" cy="354" r="10"/>
+      <circle cx="972" cy="514" r="8"/>
+      <circle cx="178" cy="222" r="8"/>
+      <circle cx="466" cy="268" r="9"/>
+      <circle cx="680" cy="166" r="8"/>
+      <circle cx="842" cy="248" r="10"/>
+      <circle cx="1068" cy="242" r="7"/>
+    </g>
+  </g>
+  <g fill="#f0c668" opacity=".8">
+    <circle cx="302" cy="418" r="8"/>
+    <circle cx="548" cy="398" r="7"/>
+    <circle cx="884" cy="438" r="9"/>
+  </g>
+</svg>
