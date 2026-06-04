@@ -51,7 +51,9 @@ function renderSite(site) {
   const research = site.research || {};
   const contact = site.contact || {};
 
-  document.title = `${profile.name || "Wenlong Xue"} | Hybrid Glass Frameworks`;
+  if ((document.body.dataset.page || "home") === "home") {
+    document.title = `${profile.name || "Wenlong Xue"} | Hybrid Glass Frameworks`;
+  }
 
   setText("[data-profile-name]", profile.name);
   setText("[data-profile-role-full]", profile.roleFull || profile.role);
