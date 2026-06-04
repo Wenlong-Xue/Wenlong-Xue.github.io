@@ -3,6 +3,7 @@ const qsa = (selector, root = document) => Array.from(root.querySelectorAll(sele
 
 const DEFAULT_LANGUAGE = "en";
 const STORAGE_LANGUAGE_KEY = "wenlongSiteLanguage";
+const DATA_VERSION = "bilingual-20260604b";
 const PAGE_TITLE_KEYS = {
   home: "siteTitle",
   about: "aboutTitle",
@@ -142,7 +143,8 @@ function setPageTitle(profile = {}) {
 }
 
 async function loadJSON(path) {
-  const response = await fetch(path);
+  const separator = path.includes("?") ? "&" : "?";
+  const response = await fetch(`${path}${separator}v=${DATA_VERSION}`);
   if (!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
