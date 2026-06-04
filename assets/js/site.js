@@ -3,7 +3,7 @@ const qsa = (selector, root = document) => Array.from(root.querySelectorAll(sele
 
 const DEFAULT_LANGUAGE = "en";
 const STORAGE_LANGUAGE_KEY = "wenlongSiteLanguage";
-const DATA_VERSION = "seo-20260604";
+const DATA_VERSION = "social-20260604";
 const PAGE_TITLE_KEYS = {
   home: "siteTitle",
   about: "aboutTitle",
