@@ -18,6 +18,13 @@ function setLink(selector, url) {
   if (element && url) element.href = url;
 }
 
+function setActiveNav() {
+  const page = document.body.dataset.page || "home";
+  qsa("[data-nav-page]").forEach((link) => {
+    if (link.dataset.navPage === page) link.classList.add("active");
+  });
+}
+
 async function loadJSON(path) {
   const response = await fetch(path);
   if (!response.ok) throw new Error(`Could not load ${path}`);
@@ -107,15 +114,47 @@ function renderPublications(items) {
   const target = qs("[data-publications]");
   if (!target) return;
 
-  target.innerHTML = items.map((pub) => `
-    <article class="publication-item">
-      <div>
-        <h3>${escapeHTML(pub.title)}</h3>
-        <div class="publication-meta">${escapeHTML(pub.authors)} &middot; ${escapeHTML(pub.journal)} &middot; ${escapeHTML(pub.year)}</div>
+  const groups = items.reduce((map, pub) => {
+    const year = pub.year || "Other";
+    if (!map.has(year)) map.set(year, []);
+    map.get(year).push(pub);
+    return map;
+  }, new Map());
+
+  target.innerHTML = Array.from(groups.entries()).map(([year, pubs]) => `
+    <section class="publication-year">
+      <h2>${escapeHTML(year)}</h2>
+      <div class="publication-year-items">
+        ${pubs.map(renderPublicationItem).join("")}
       </div>
-      ${pub.url ? `<a class="publication-link" href="${escapeHTML(pub.url)}" target="_blank" rel="noopener">DOI</a>` : ""}
-    </article>
+    </section>
   `).join("");
+}
+
+function formatCitation(pub) {
+  const parts = [];
+  if (pub.journal) parts.push(`<strong>${escapeHTML(pub.journal)}</strong>`);
+  const details = [pub.volume, pub.issue ? `(${pub.issue})` : "", pub.pages].filter(Boolean).join(" ");
+  if (details) parts.push(escapeHTML(details));
+  if (pub.type && pub.type !== "Journal article") parts.push(escapeHTML(pub.type));
+  return parts.join(", ");
+}
+
+function renderPublicationItem(pub) {
+  const citation = formatCitation(pub);
+  return `
+    <article class="publication-item">
+      <div class="publication-body">
+        <h3>${escapeHTML(pub.title)}</h3>
+        <p class="publication-authors">${escapeHTML(pub.authors)}</p>
+        <p class="publication-meta">${citation}</p>
+      </div>
+      <div class="publication-actions">
+        ${pub.url ? `<a class="publication-link" href="${escapeHTML(pub.url)}" target="_blank" rel="noopener">${pub.doi ? "DOI" : "Link"}</a>` : ""}
+        ${pub.scholarUrl ? `<a class="publication-link subtle" href="${escapeHTML(pub.scholarUrl)}" target="_blank" rel="noopener">Scholar</a>` : ""}
+      </div>
+    </article>
+  `;
 }
 
 function renderNews(items) {
@@ -171,6 +210,7 @@ function setupNavigation() {
 async function init() {
   setText("[data-year]", new Date().getFullYear());
   setupNavigation();
+  setActiveNav();
 
   try {
     const draft = loadDraftData();

@@ -6,7 +6,7 @@ You are helping maintain an academic website for Wenlong Xue. The site should re
 
 - Plain HTML, CSS, and JavaScript.
 - No build step and no backend.
-- `index.html` is the public website.
+- `index.html` is the home page. Research, Publications, News, People, and Contact are separate pages.
 - `edit.html` is a local browser-based editor for JSON content.
 - Public content is stored under `content/`.
 
@@ -15,7 +15,7 @@ You are helping maintain an academic website for Wenlong Xue. The site should re
 Routine content updates should be made in JSON:
 
 - `content/site.json`: profile, hero text, about text, research, and contact.
-- `content/publications.json`: publication entries.
+- `content/publications.json`: publication entries grouped by year on `publications.html`.
 - `content/news.json`: recent updates.
 - `content/people.json`: profile and group members.
 
@@ -48,7 +48,7 @@ Publication entries support:
 - `tags`
 - `selected`
 
-Sort publications newest first. Use DOI URLs where possible.
+Sort publications newest first. Use the Google Scholar profile as the publication list source, and use DOI or publisher URLs where possible. Preserve complete author strings.
 
 ## Validation checklist
 

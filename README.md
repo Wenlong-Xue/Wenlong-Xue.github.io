@@ -1,6 +1,6 @@
 # Wenlong Xue academic website
 
-This is a lightweight static academic website for GitHub Pages. It uses plain HTML, CSS, and JavaScript, with editable content stored in JSON files under `content/`.
+This is a lightweight multi-page academic website for GitHub Pages. It uses plain HTML, CSS, and JavaScript, with editable content stored in JSON files under `content/`.
 
 ## Local preview
 
@@ -13,6 +13,7 @@ python -m http.server 8000
 Then open:
 
 - Website: `http://localhost:8000/`
+- Publications: `http://localhost:8000/publications.html`
 - Editor: `http://localhost:8000/edit.html`
 
 Opening `index.html` directly may work for the layout, but most browsers block local JSON loading from `file://`. Use the local server above for normal editing.
@@ -32,7 +33,7 @@ If folder saving is not available, click **Download JSON** and place the downloa
 ## Content files
 
 - `content/site.json`: profile, hero text, about text, research, and contact.
-- `content/publications.json`: publication list shown on the website.
+- `content/publications.json`: publication list shown on `publications.html`, grouped by year.
 - `content/news.json`: recent updates.
 - `content/people.json`: current profile and future group members.
 
@@ -51,7 +52,7 @@ Publication entries support:
 - `tags`
 - `selected`
 
-Use the editor to add or reorder papers. DOI links appear automatically when `url` is filled.
+The publication list is structured from the Google Scholar profile and includes complete author strings, journal details, DOI or article links, and Scholar detail links. DOI links appear automatically when `url` is filled.
 
 ## GitHub Pages deployment
 
