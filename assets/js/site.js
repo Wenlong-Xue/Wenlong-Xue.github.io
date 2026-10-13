@@ -1,438 +1,73 @@
-const qs = (selector, root = document) => root.querySelector(selector);
-const qsa = (selector, root = document) => Array.from(root.querySelectorAll(selector));
-
-const DEFAULT_LANGUAGE = "en";
-const STORAGE_LANGUAGE_KEY = "wenlongSiteLanguage";
-const DATA_VERSION = "social-20260604";
-const PAGE_TITLE_KEYS = {
-  home: "siteTitle",
-  about: "aboutTitle",
-  research: "researchTitle",
-  "mof-glasses": "mofGlassesTitle",
-  publications: "publicationsTitle",
-  news: "newsTitle",
-  people: "peopleTitle",
-  contact: "contactTitle"
-};
-const PAGE_NAMES = {
-  about: "About",
-  research: "Research",
-  "mof-glasses": "MOF Glasses",
-  publications: "Publications",
-  news: "News",
-  people: "People",
-  contact: "Contact"
-};
-const EN_PAGE_TITLES = {
-  home: "Wenlong Xue | MOF Glasses & Hybrid Glass Frameworks",
-  about: "About Wenlong Xue | MOF Glasses Researcher",
-  research: "Research on MOF Glasses, Proton Conductors & Devices | Wenlong Xue",
-  "mof-glasses": "MOF Glasses & Hybrid Glass Frameworks | Wenlong Xue",
-  publications: "Publications on MOF Glasses & Hybrid Frameworks | Wenlong Xue",
-  news: "News | Wenlong Xue MOF Glasses Research",
-  people: "People | Wenlong Xue Research Group",
-  contact: "Contact Wenlong Xue | MOF Glasses Research"
-};
-
-let currentLanguage = DEFAULT_LANGUAGE;
+import {escapeHTML,publicationsHTML,matchingPublications,latestHTML,researchHTML,newsHTML,peopleHTML} from './templates.mjs?v=20261013';
+const qs = (selector) => document.querySelector(selector);
+const qsa = (selector) => [...document.querySelectorAll(selector)];
+const version = 'minimal-20261013';
+const storageKey = 'wenlongSiteLanguage';
+const pageTitleKeys = {home:'siteTitle',about:'aboutTitle',research:'researchTitle','mof-glasses':'mofGlassesTitle',publications:'publicationsTitle',news:'newsTitle',people:'peopleTitle',contact:'contactTitle'};
+const originalTitle = document.title;
+let language = 'en';
+let content;
 let translations = {};
-let contentCache = null;
-
-const escapeHTML = (value = "") => String(value)
-  .replaceAll("&", "&amp;")
-  .replaceAll("<", "&lt;")
-  .replaceAll(">", "&gt;")
-  .replaceAll('"', "&quot;")
-  .replaceAll("'", "&#039;");
-
-function setText(selector, value) {
-  const element = qs(selector);
-  if (element) element.textContent = value || "";
+let filter = {query:'',mode:'articles'};
+function storedLanguage() { try { return localStorage.getItem(storageKey); } catch { return null; } }
+function translate(path, fallback) { return language === 'zh' ? path.split('.').reduce((value,key) => value?.[key], translations.zh) ?? fallback : fallback; }
+function setText(selector, value) { qsa(selector).forEach(element => { element.textContent = value || ''; }); }
+function setLink(selector, url) { qsa(selector).forEach(element => { if (url) element.href = url; }); }
+function setContent(selector, html) { const target=qs(selector); if(target) target.innerHTML=html; }
+function updatePublications() {
+  if (!qs('[data-publications]')) return;
+  const results = matchingPublications(content.publications,filter);
+  qsa('[data-publication-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.publicationMode===filter.mode)));
+  setContent('[data-publications]',publicationsHTML(content.publications,{...filter,lang:language}));
+  setText('[data-publication-count]',language === 'zh' ? `${results.length} 条记录` : `${results.length} records`);
+  setText('[data-publication-empty]',language === 'zh' ? '没有匹配的论文。' : 'No matching publications.');
+  qs('[data-publication-empty]').hidden = Boolean(results.length);
 }
-
-function setLink(selector, url) {
-  const element = qs(selector);
-  if (element && url) element.href = url;
+function render() {
+  const translated=language === 'zh' ? translations.zh || {} : {};
+  const site=content.site;
+  const profile={...site.profile,...translated.profile};
+  const hero={...site.hero,...translated.hero};
+  const about={...site.about,...translated.about};
+  const research={...site.research,...translated.research,items:site.research.items.map((item,i)=>({...item,...translated.research?.items?.[i]}))};
+  document.documentElement.lang=language === 'zh' ? 'zh-CN' : 'en';
+  qsa('[data-i18n]').forEach(element=> { element.textContent=translate(element.dataset.i18n,element.dataset.defaultText); });
+  qsa('[data-lang-option]').forEach(button=> { const active=button.dataset.langOption === language; button.classList.toggle('active',active); button.setAttribute('aria-pressed',String(active)); });
+  document.title=translate(`meta.${pageTitleKeys[document.body.dataset.page]}`,originalTitle);
+  for(const [selector,value] of Object.entries({'[data-profile-name]':profile.name,'[data-hero-title]':hero.title,'[data-hero-subtitle]':hero.subtitle,'[data-hero-eyebrow]':hero.eyebrow,'[data-profile-role-full]':profile.roleFull,'[data-profile-affiliation]':profile.affiliation,'[data-profile-location]':profile.location,'[data-footer-name]':profile.name,'[data-contact-name]':profile.name,'[data-contact-role]':profile.roleFull,'[data-contact-affiliation]':profile.affiliation,'[data-contact-location]':profile.location,'[data-contact-heading]':translated.contact?.heading || site.contact.heading,'[data-contact-text]':translated.contact?.text || site.contact.text,'[data-research-heading]':research.heading,'[data-research-intro]':research.intro})) setText(selector,value);
+  qsa('[data-profile-photo]').forEach(image=> { image.src=profile.photoUrl; image.alt=profile.photoAlt; });
+  qsa('[data-about-text]').forEach(target=> { const paragraphs=target.dataset.aboutText === 'home' ? [hero.lead] : about.paragraphs; target.innerHTML=paragraphs.map(p=>`<p>${escapeHTML(p)}</p>`).join(''); });
+  setText('[data-contact-email]',profile.email);
+  setLink('[data-contact-email]',`mailto:${profile.email}`);
+  setLink('[data-scholar-link]',profile.scholarUrl); setLink('[data-orcid-link]',profile.orcidUrl); setLink('[data-ku-link]',profile.kuProfileUrl);
+  setContent('[data-research]',researchHTML(research.items));
+  setContent('[data-latest-publications]',latestHTML(content.publications));
+  setContent('[data-news]',newsHTML(content.news,language));
+  const people=content.people.map((person,i)=>({...person,...translated.people?.[i]}));
+  setContent('[data-people]',peopleHTML(people,language));
+  updatePublications();
+  const search=qs('[data-publication-search]');
+  if(search) { search.placeholder=language === 'zh' ? '搜索标题、作者或 DOI' : 'Search title, author or DOI'; search.setAttribute('aria-label',search.placeholder); }
+  qsa('[data-long-text]').forEach(element=> { if(language==='zh' && translated.articles?.[element.dataset.longText]) element.innerHTML=translated.articles[element.dataset.longText]; else element.innerHTML=element.dataset.originalHTML; });
+  setText('[data-year]',new Date().getFullYear());
+  document.body.dataset.ready='true';
 }
-
-function setImage(selector, src, alt) {
-  const element = qs(selector);
-  if (!element) return;
-  if (src) element.src = src;
-  if (alt) element.alt = alt;
-}
-
-function getNestedValue(source, path) {
-  return path.split(".").reduce((value, key) => value?.[key], source);
-}
-
-function getTranslation(path, fallback = "") {
-  if (currentLanguage === DEFAULT_LANGUAGE) return fallback;
-  return getNestedValue(translations[currentLanguage], path) ?? fallback;
-}
-
-function getInitialLanguage() {
-  const params = new URLSearchParams(window.location.search);
-  const requested = params.get("lang") || window.localStorage.getItem(STORAGE_LANGUAGE_KEY);
-  return requested === "zh" ? "zh" : DEFAULT_LANGUAGE;
-}
-
-function captureTranslationDefaults() {
-  qsa("[data-i18n]").forEach((element) => {
-    if (!element.dataset.i18nDefault) element.dataset.i18nDefault = element.textContent;
-  });
-}
-
-function applyStaticTranslations() {
-  document.documentElement.lang = currentLanguage === "zh" ? "zh-CN" : "en";
-  qsa("[data-i18n]").forEach((element) => {
-    const fallback = element.dataset.i18nDefault || element.textContent;
-    element.textContent = getTranslation(element.dataset.i18n, fallback);
-  });
-}
-
-function updateLanguageSwitch() {
-  qsa("[data-lang-option]").forEach((button) => {
-    const isActive = button.dataset.langOption === currentLanguage;
-    button.classList.toggle("active", isActive);
-    button.setAttribute("aria-pressed", String(isActive));
-  });
-}
-
-function mergeTranslatedArray(base = [], translated = []) {
-  return base.map((item, index) => ({ ...item, ...(translated[index] || {}) }));
-}
-
-function localizeSite(site = {}) {
-  const localized = translations[currentLanguage] || {};
-  const research = site.research || {};
-  const translatedResearch = localized.research || {};
-
-  return {
-    ...site,
-    profile: { ...(site.profile || {}), ...(localized.profile || {}) },
-    hero: { ...(site.hero || {}), ...(localized.hero || {}) },
-    about: { ...(site.about || {}), ...(localized.about || {}) },
-    research: {
-      ...research,
-      ...translatedResearch,
-      items: mergeTranslatedArray(research.items || [], translatedResearch.items || [])
-    },
-    contact: { ...(site.contact || {}), ...(localized.contact || {}) }
-  };
-}
-
-function localizeArray(items = [], key) {
-  const translated = translations[currentLanguage]?.[key] || [];
-  return mergeTranslatedArray(items, translated);
-}
-
-function setActiveNav() {
-  const page = document.body.dataset.page || "home";
-  const activePage = document.body.dataset.navActive || page;
-  qsa("[data-nav-page]").forEach((link) => {
-    const isActive = link.dataset.navPage === activePage;
-    link.classList.toggle("active", isActive);
-    if (isActive) {
-      link.setAttribute("aria-current", "page");
-    } else {
-      link.removeAttribute("aria-current");
-    }
-  });
-}
-
-function setPageTitle(profile = {}) {
-  const page = document.body.dataset.page || "home";
-  const translatedTitle = getTranslation(`meta.${PAGE_TITLE_KEYS[page]}`, "");
-  if (translatedTitle) {
-    document.title = translatedTitle;
-    return;
-  }
-
-  const name = profile.name || "Wenlong Xue";
-  document.title = EN_PAGE_TITLES[page] || `${PAGE_NAMES[page] || "Wenlong Xue"} | ${name}`;
-}
-
-async function loadJSON(path) {
-  const separator = path.includes("?") ? "&" : "?";
-  const response = await fetch(`${path}${separator}v=${DATA_VERSION}`);
-  if (!response.ok) throw new Error(`Could not load ${path}`);
-  return response.json();
-}
-
-function loadDraftData() {
-  const params = new URLSearchParams(window.location.search);
-  if (!params.has("draft")) return null;
-  const raw = window.localStorage.getItem("wenlongSiteDraft");
-  if (!raw) return null;
-  try {
-    return JSON.parse(raw);
-  } catch (error) {
-    console.warn("Draft data could not be parsed.", error);
-    return null;
-  }
-}
-
-function renderSite(site) {
-  const profile = site.profile || {};
-  const hero = site.hero || {};
-  const about = site.about || {};
-  const research = site.research || {};
-  const contact = site.contact || {};
-
-  setText("[data-profile-name]", profile.name);
-  setText("[data-profile-role-full]", profile.roleFull || profile.role);
-  setText("[data-profile-affiliation]", profile.affiliation);
-  setText("[data-profile-location]", profile.location);
-  setImage("[data-profile-photo]", profile.photoUrl, profile.photoAlt);
-
-  setText("[data-hero-eyebrow]", hero.eyebrow);
-  setText("[data-hero-title]", hero.title || profile.name);
-  setText("[data-hero-subtitle]", hero.subtitle);
-
-  qsa("[data-about-text]").forEach((target) => {
-    const isHomeSummary = target.dataset.aboutText === "home";
-    const paragraphs = isHomeSummary
-      ? [hero.lead || about.paragraphs?.[0]].filter(Boolean)
-      : (about.paragraphs?.length ? about.paragraphs : [hero.lead].filter(Boolean));
-    target.innerHTML = paragraphs.map((paragraph) => `<p>${escapeHTML(paragraph)}</p>`).join("");
-  });
-
-  setText("[data-research-heading]", research.heading);
-  setText("[data-research-intro]", research.intro);
-  renderResearch(research.items || []);
-
-  setText("[data-contact-heading]", contact.heading);
-  setText("[data-contact-text]", contact.text);
-  setText("[data-contact-name]", profile.name);
-  setText("[data-contact-role]", profile.roleFull || profile.role);
-  setText("[data-contact-affiliation]", profile.affiliation);
-  setText("[data-contact-location]", profile.location);
-  setText("[data-footer-name]", profile.name);
-
-  const email = qs("[data-contact-email]");
-  if (email && profile.email) {
-    email.textContent = profile.email;
-    email.href = `mailto:${profile.email}`;
-  }
-  setLink("[data-scholar-link]", profile.scholarUrl);
-  setLink("[data-orcid-link]", profile.orcidUrl);
-  setLink("[data-ku-link]", profile.kuProfileUrl);
-}
-
-function renderResearch(items) {
-  const target = qs("[data-research]");
-  if (!target) return;
-  target.innerHTML = items.map((item) => `
-    <article class="research-item">
-      <figure class="research-image">
-        <img src="${escapeHTML(item.image || "assets/img/network.svg")}" alt="${escapeHTML(item.imageAlt || item.title || "")}" />
-      </figure>
-      <div class="research-copy">
-        <h3>${escapeHTML(item.title)}</h3>
-        <p>${escapeHTML(item.text)}</p>
-        ${renderTags(item.tags || [])}
-      </div>
-    </article>
-  `).join("");
-}
-
-function renderTags(tags) {
-  if (!tags.length) return "";
-  return `<div class="tag-row">${tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div>`;
-}
-
-function renderPublications(items) {
-  const target = qs("[data-publications]");
-  renderSelectedPublications(items);
-  if (!target) return;
-
-  const groups = items.reduce((map, pub) => {
-    const year = pub.year || "Other";
-    if (!map.has(year)) map.set(year, []);
-    map.get(year).push(pub);
-    return map;
-  }, new Map());
-
-  target.innerHTML = Array.from(groups.entries()).map(([year, pubs]) => `
-    <section class="publication-year">
-      <h2>${escapeHTML(year)}</h2>
-      <div class="publication-year-items">
-        ${pubs.map(renderPublicationItem).join("")}
-      </div>
-    </section>
-  `).join("");
-}
-
-function renderSelectedPublications(items) {
-  const target = qs("[data-selected-publications]");
-  if (!target) return;
-  const selected = items.filter((pub) => pub.selected);
-  target.innerHTML = selected.map(renderSelectedPublicationItem).join("");
-}
-
-function renderSelectedPublicationItem(pub) {
-  const keywords = pub.keywords || pub.tags || [];
-  return `
-    <article class="selected-publication">
-      <h3>${escapeHTML(pub.title)}</h3>
-      <p class="publication-authors">${escapeHTML(pub.authors)}</p>
-      <p class="publication-meta">${escapeHTML([pub.journal, pub.year].filter(Boolean).join(", "))}</p>
-      <div class="selected-publication-footer">
-        ${pub.url ? `<a class="publication-link" href="${escapeHTML(pub.url)}" target="_blank" rel="noopener">DOI</a>` : ""}
-        ${keywords.length ? `<p class="keyword-line"><strong>Keywords:</strong> ${keywords.map(escapeHTML).join(", ")}</p>` : ""}
-      </div>
-    </article>
-  `;
-}
-
-function formatCitation(pub) {
-  const parts = [];
-  if (pub.journal) parts.push(`<strong>${escapeHTML(pub.journal)}</strong>`);
-  const details = [pub.volume, pub.issue ? `(${pub.issue})` : "", pub.pages].filter(Boolean).join(" ");
-  if (details) parts.push(escapeHTML(details));
-  if (pub.type && pub.type !== "Journal article") parts.push(escapeHTML(pub.type));
-  return parts.join(", ");
-}
-
-function renderPublicationItem(pub) {
-  const citation = formatCitation(pub);
-  const doiLabel = getTranslation("labels.doi", "DOI");
-  const linkLabel = getTranslation("labels.link", "Link");
-  const scholarLabel = getTranslation("labels.scholar", "Scholar");
-  return `
-    <article class="publication-item">
-      <div class="publication-body">
-        <h3 class="publication-title">${escapeHTML(pub.title)}</h3>
-        <p class="publication-authors">${escapeHTML(pub.authors)}</p>
-        <p class="publication-meta">${citation}</p>
-      </div>
-      <div class="publication-actions">
-        ${pub.url ? `<a class="publication-link" href="${escapeHTML(pub.url)}" target="_blank" rel="noopener">${pub.doi ? escapeHTML(doiLabel) : escapeHTML(linkLabel)}</a>` : ""}
-        ${pub.scholarUrl ? `<a class="publication-link subtle" href="${escapeHTML(pub.scholarUrl)}" target="_blank" rel="noopener">${escapeHTML(scholarLabel)}</a>` : ""}
-      </div>
-    </article>
-  `;
-}
-
-function renderNews(items) {
-  const target = qs("[data-news]");
-  if (!target) return;
-  target.innerHTML = items.map((item) => `
-    <article class="news-item">
-      <div class="news-date">${escapeHTML(item.date)}</div>
-      <h3>${escapeHTML(item.title)}</h3>
-      <p>${escapeHTML(item.text)}</p>
-    </article>
-  `).join("");
-}
-
-function renderPeople(items) {
-  const target = qs("[data-people]");
-  if (!target) return;
-  target.innerHTML = items.map((person) => `
-    <article class="person-item">
-      <figure class="person-photo">
-        <img src="${escapeHTML(person.photo || "assets/img/member-placeholder.svg")}" alt="${escapeHTML(person.photoAlt || person.name || "")}" />
-      </figure>
-      <div class="person-copy">
-        <div class="person-role">${escapeHTML(person.role)}</div>
-        <h3>${escapeHTML(person.name)}</h3>
-        <p>${escapeHTML(person.bio)}</p>
-        ${renderPersonLinks(person.links || [])}
-      </div>
-    </article>
-  `).join("");
-}
-
-function renderPersonLinks(links) {
-  if (!links.length) return "";
-  return `<div class="person-links">${links.map((link) => `
-    <a href="${escapeHTML(link.url)}" target="_blank" rel="noopener">${escapeHTML(link.label)}</a>
-  `).join("")}</div>`;
-}
-
-function setupNavigation() {
-  const navToggle = qs("[data-nav-toggle]");
-  const navLinks = qs("[data-nav-links]");
-  if (!navToggle || !navLinks) return;
-
-  navToggle.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("open");
-    navToggle.setAttribute("aria-expanded", String(isOpen));
-  });
-
-  qsa(".nav-links a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("open");
-      navToggle.setAttribute("aria-expanded", "false");
-    });
-  });
-}
-
-function setupLanguageSwitch() {
-  qsa("[data-lang-option]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const nextLanguage = button.dataset.langOption === "zh" ? "zh" : DEFAULT_LANGUAGE;
-      if (nextLanguage === currentLanguage) return;
-      currentLanguage = nextLanguage;
-      window.localStorage.setItem(STORAGE_LANGUAGE_KEY, currentLanguage);
-      if (contentCache) renderAll(contentCache);
-    });
-  });
-}
-
-function renderAll(data) {
-  const site = localizeSite(data.site || {});
-  const news = localizeArray(data.news || [], "news");
-  const people = localizeArray(data.people || [], "people");
-
-  applyStaticTranslations();
-  updateLanguageSwitch();
-  setActiveNav();
-  renderSite(site);
-  renderPublications(data.publications || []);
-  renderNews(news);
-  renderPeople(people);
-  setPageTitle(site.profile || {});
-}
-
+async function loadJSON(file) { const response=await fetch(`content/${file}.json?v=${version}`,{cache:'no-cache'}); if(!response.ok) throw new Error(`Could not load ${file}`); return response.json(); }
 async function init() {
-  currentLanguage = getInitialLanguage();
-  captureTranslationDefaults();
-  setText("[data-year]", new Date().getFullYear());
-  setupNavigation();
-  setupLanguageSwitch();
-
+  qsa('[data-i18n]').forEach(element=>element.dataset.defaultText=element.textContent);
+  qsa('[data-long-text]').forEach(element=>element.dataset.originalHTML=element.innerHTML);
+  const requested=new URLSearchParams(location.search).get('lang') || storedLanguage(); language=requested === 'zh' ? 'zh' : 'en';
+  const toggle=qs('[data-nav-toggle]'), nav=qs('[data-nav-links]');
+  toggle?.addEventListener('click',()=> { const open=nav.classList.toggle('open'); toggle.setAttribute('aria-expanded',String(open)); });
+  document.addEventListener('keydown',event=> { if(event.key==='Escape' && nav?.classList.contains('open')) { nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); toggle.focus(); } });
   try {
-    const i18n = await loadJSON("content/i18n.json").catch(() => ({}));
-    translations = i18n || {};
-    const draft = loadDraftData();
-    if (draft) {
-      contentCache = {
-        site: draft.site,
-        publications: draft.publications,
-        news: draft.news,
-        people: draft.people
-      };
-    } else {
-      const [site, publications, news, people] = await Promise.all([
-        loadJSON("content/site.json"),
-        loadJSON("content/publications.json"),
-        loadJSON("content/news.json"),
-        loadJSON("content/people.json")
-      ]);
-      contentCache = { site, publications, news, people };
-    }
-
-    renderAll(contentCache);
-  } catch (error) {
-    console.error(error);
-    const publicationTarget = qs("[data-publications]");
-    if (publicationTarget) {
-      publicationTarget.innerHTML = '<p class="publication-meta">Content data could not be loaded. Please preview the site through a local web server.</p>';
-    }
-  }
+    const [site,publications,news,people,i18n]=await Promise.all(['site','publications','news','people','i18n'].map(loadJSON));
+    content={site,publications,news,people}; translations=i18n;
+    if(new URLSearchParams(location.search).has('draft')) { try { const draft=JSON.parse(localStorage.getItem('wenlongSiteDraft')); if(draft?.site) content={...content,...draft}; } catch(error) { console.warn('Draft could not be loaded.',error); } }
+    render();
+    qsa('[data-lang-option]').forEach(button=>button.addEventListener('click',()=> { language=button.dataset.langOption; try { localStorage.setItem(storageKey,language); } catch {} const url=new URL(location.href); url.searchParams.delete('lang'); history.replaceState(null,'',url); render(); }));
+    qs('[data-publication-search]')?.addEventListener('input',event=> { filter.query=event.target.value; updatePublications(); });
+    qsa('[data-publication-mode]').forEach(button=>button.addEventListener('click',()=> { filter.mode=button.dataset.publicationMode; qsa('[data-publication-mode]').forEach(item=>item.setAttribute('aria-pressed',String(item===button))); updatePublications(); }));
+  } catch(error) { console.warn('Live content unavailable; showing the saved page.',error); document.body.dataset.ready='fallback'; }
 }
-
 init();

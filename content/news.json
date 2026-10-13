@@ -1,22 +1,42 @@
 [
   {
-    "date": "2026",
-    "title": "New results on alkali-ion-modified ZIF glasses",
-    "text": "Recent work reports alkali-ion modification as a route to tune zeolitic imidazolate framework glasses."
+    "date": "2026-09-14",
+    "title": "Photochromic hybrid metal halide glasses",
+    "titleZh": "光致变色杂化金属卤化物玻璃",
+    "text": "New collaborative work in Angewandte Chemie International Edition.",
+    "textZh": "合作研究发表于 Angewandte Chemie International Edition。",
+    "url": "https://doi.org/10.1002/anie.1298188"
   },
   {
-    "date": "2026",
-    "title": "Hybrid glass and membrane processing directions expand",
-    "text": "Current projects connect meltable and directly synthesised frameworks with thin-film processing, nanofiltration, and proton-transport screening."
+    "date": "2026-08-24",
+    "title": "Restructuring MOF glasses through ligand exchange",
+    "titleZh": "通过配体交换重构 MOF 玻璃",
+    "text": "Flux-mediated ligand exchange research published in Nature Materials.",
+    "textZh": "助熔介导的配体交换研究发表于 Nature Materials。",
+    "url": "https://doi.org/10.1038/s41563-026-02712-5"
   },
   {
-    "date": "2025",
+    "date": "2026-06-16",
+    "title": "Zinc halide flux-assisted vitrification",
+    "titleZh": "锌卤化物助熔玻璃化",
+    "text": "The full journal article is now available in JACS.",
+    "textZh": "正式论文已发表于 JACS。",
+    "url": "https://doi.org/10.1021/jacs.6c05678"
+  },
+  {
+    "date": "2026-05-04",
+    "title": "Alkali-ion-modified ZIF glasses",
+    "titleZh": "碱金属离子改性的 ZIF 玻璃",
+    "text": "Collaborative work published in Nature Chemistry.",
+    "textZh": "合作研究发表于 Nature Chemistry。",
+    "url": "https://doi.org/10.1038/s41557-026-02115-8"
+  },
+  {
+    "date": "2025-03",
     "title": "MSCA Postdoctoral Fellowship at KU Leuven",
-    "text": "The MOPOWER project develops MOF-derived proton-conducting hybrid glasses for energy technologies."
-  },
-  {
-    "date": "2024-2025",
-    "title": "MOF glass papers published across Nature Communications, JACS, Angewandte Chemie, and Chemistry of Materials",
-    "text": "Recent publications cover porous MOF liquids and glasses, metal-carboxylate framework glasses, mechanochemical glass formation, and defect identification."
+    "titleZh": "在 KU Leuven 开展 MSCA 博士后研究",
+    "text": "Research on amorphous hybrid frameworks and proton-conducting materials in the Ameloot Group.",
+    "textZh": "在 Ameloot 课题组开展无定形杂化框架与质子传导材料研究。",
+    "url": "https://www.kuleuven.be/wieiswie/en/person/00177372"
   }
 ]

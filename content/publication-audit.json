@@ -1,0 +1,261 @@
+{
+  "verifiedAt": "2026-10-13",
+  "grouping": "Journal issue year where assigned; otherwise online publication year. Online-first dates retained separately.",
+  "sources": [
+    "https://orcid.org/0000-0003-0778-2300",
+    "https://www.kuleuven.be/wieiswie/en/person/00177372",
+    "https://api.crossref.org/"
+  ],
+  "records": [
+    {
+      "doi": "10.1038/s41557-026-02115-8",
+      "status": "updated",
+      "title": "Alkali-ion-modified zeolitic imidazolate framework glasses",
+      "authors": 16,
+      "year": "2026",
+      "onlineDate": "2026-05-04",
+      "source": "https://api.crossref.org/works/10.1038/s41557-026-02115-8",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1021/acs.chemmater.5c03043",
+      "status": "updated",
+      "title": "Facile Melt-Quenched Glass Formation of Zwitterion-Modified Carboxylate Metal–Organic Frameworks",
+      "authors": 12,
+      "year": "2026",
+      "onlineDate": "2026-02-14",
+      "source": "https://api.crossref.org/works/10.1021/acs.chemmater.5c03043",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1002/adfm.202517854",
+      "status": "updated",
+      "title": "Emergent Spin-Glass Behavior in an Iron(II)-Based Metal–Organic Framework Glass",
+      "authors": 9,
+      "year": "2026",
+      "onlineDate": "2025-08-14",
+      "source": "https://api.crossref.org/works/10.1002/adfm.202517854",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1002/anie.202506570",
+      "status": "updated",
+      "title": "Engineering a Meltable MOF to Tune Liquid Transition and Promote Coenzyme Regeneration",
+      "authors": 16,
+      "year": "2025",
+      "onlineDate": "2025-06-12",
+      "source": "https://api.crossref.org/works/10.1002/anie.202506570",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1021/jacs.5c02767",
+      "status": "updated",
+      "title": "Mechanochemical Synthesis Enables Melting, Glass Formation and Glass–Ceramic Conversion in a Cadmium-Based Zeolitic Imidazolate Framework",
+      "authors": 12,
+      "year": "2025",
+      "onlineDate": "2025-04-24",
+      "source": "https://api.crossref.org/works/10.1021/jacs.5c02767",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1021/acs.chemmater.4c03190",
+      "status": "updated",
+      "title": "Defect Identification in Zeolitic Imidazolate Framework Glasses by Solid-State NMR Spectroscopy Using 13CO2 as Probe",
+      "authors": 7,
+      "year": "2025",
+      "onlineDate": "2025-02-08",
+      "source": "https://api.crossref.org/works/10.1021/acs.chemmater.4c03190",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1016/j.advmem.2025.100182",
+      "status": "updated",
+      "title": "Flux melting of UiO-67 family metal-organic frameworks: the thin film processing and nanofiltration property",
+      "authors": 9,
+      "year": "2026",
+      "onlineDate": "2025-10-24",
+      "source": "https://api.crossref.org/works/10.1016/j.advmem.2025.100182",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1039/d5cc04620c",
+      "status": "updated",
+      "title": "Xenon adsorption-induced flexibility of the zeolitic imidazolate framework ZIF-4 observed by in situ 129 Xe NMR spectroscopy",
+      "authors": 8,
+      "year": "2025",
+      "onlineDate": "2025",
+      "source": "https://api.crossref.org/works/10.1039/d5cc04620c",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1002/anie.202405307",
+      "status": "updated",
+      "title": "Insights Into the Mechanochemical Glass Formation of Zeolitic Imidazolate Frameworks",
+      "authors": 4,
+      "year": "2024",
+      "onlineDate": "2024-08-14",
+      "source": "https://api.crossref.org/works/10.1002/anie.202405307",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1002/ange.202405307",
+      "status": "updated",
+      "title": "Einblicke in die Mechanochemische Glasbildung von Zeolithischen Imidazolat-Gerüstverbindungen",
+      "authors": 4,
+      "year": "2024",
+      "onlineDate": "2024-08-14",
+      "source": "https://api.crossref.org/works/10.1002/ange.202405307",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1038/s41467-024-48703-5",
+      "status": "updated",
+      "title": "Highly porous metal-organic framework liquids and glasses via a solvent-assisted linker exchange strategy of ZIF-8",
+      "authors": 10,
+      "year": "2024",
+      "onlineDate": "2024-05-24",
+      "source": "https://api.crossref.org/works/10.1038/s41467-024-48703-5",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1038/s41467-024-46311-x",
+      "status": "updated",
+      "title": "Melt-quenched glass formation of a family of metal-carboxylate frameworks",
+      "authors": 19,
+      "year": "2024",
+      "onlineDate": "2024-03-06",
+      "source": "https://api.crossref.org/works/10.1038/s41467-024-46311-x",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1002/anie.202417137",
+      "status": "updated",
+      "title": "Pore Structure Modulation in Kirigamic Zeolitic Imidazolate Framework",
+      "authors": 11,
+      "year": "2025",
+      "onlineDate": "2024-11-21",
+      "source": "https://api.crossref.org/works/10.1002/anie.202417137",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1039/d4sc00905c",
+      "status": "updated",
+      "title": "Mechanochemically-induced glass formation from two-dimensional hybrid organic–inorganic perovskites",
+      "authors": 21,
+      "year": "2024",
+      "onlineDate": "2024",
+      "source": "https://api.crossref.org/works/10.1039/d4sc00905c",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1021/jacs.3c01933",
+      "status": "updated",
+      "title": "Modulating Liquid–Liquid Transitions and Glass Formation in Zeolitic Imidazolate Frameworks by Decoration with Electron-Withdrawing Cyano Groups",
+      "authors": 8,
+      "year": "2023",
+      "onlineDate": "2023-04-18",
+      "source": "https://api.crossref.org/works/10.1021/jacs.3c01933",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1039/d3nj00773a",
+      "status": "updated",
+      "title": "Solid ionic liquids with macro–microporous structure for efficient heterogeneous catalysis of biodiesel",
+      "authors": 6,
+      "year": "2023",
+      "onlineDate": "2023",
+      "source": "https://api.crossref.org/works/10.1039/d3nj00773a",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1016/j.microc.2021.106361",
+      "status": "updated",
+      "title": "Hydrophobic polymer tethered magnetic zirconium-based metal-organic framework as advance and recyclable adsorbent for microwave-assisted extraction of polycyclic aromatic hydrocarbons from environmental water samples",
+      "authors": 5,
+      "year": "2021",
+      "onlineDate": "2021-9-1",
+      "source": "https://api.crossref.org/works/10.1016/j.microc.2021.106361",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1002/anie.202010783",
+      "status": "updated",
+      "title": "MOF-Directed Synthesis of Crystalline Ionic Liquids with Enhanced Proton Conduction",
+      "authors": 13,
+      "year": "2021",
+      "onlineDate": "2020-11-13",
+      "source": "https://api.crossref.org/works/10.1002/anie.202010783",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1021/acssuschemeng.0c06551",
+      "status": "updated",
+      "title": "Reticular Chemistry for Ionic Liquid-Functionalized Metal–Organic Frameworks with High Selectivity for CO 2",
+      "authors": 10,
+      "year": "2020",
+      "onlineDate": "2020-12-08",
+      "source": "https://api.crossref.org/works/10.1021/acssuschemeng.0c06551",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1002/anie.1298188",
+      "status": "added",
+      "title": "Photochromic Hybrid Organic-Inorganic Metal Halide Glasses",
+      "authors": 8,
+      "year": "2026",
+      "onlineDate": "2026-09-14",
+      "source": "https://api.crossref.org/works/10.1002/anie.1298188",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1002/ange.1298188",
+      "status": "added",
+      "title": "Photochromic Hybrid Organic-Inorganic Metal Halide Glasses",
+      "authors": 8,
+      "year": "2026",
+      "onlineDate": "2026-09-14",
+      "source": "https://api.crossref.org/works/10.1002/ange.1298188",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1038/s41563-026-02712-5",
+      "status": "added",
+      "title": "Flux-mediated ligand exchange restructures metal–organic framework glasses",
+      "authors": 12,
+      "year": "2026",
+      "onlineDate": "2026-08-24",
+      "source": "https://api.crossref.org/works/10.1038/s41563-026-02712-5",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1021/jacs.6c05678",
+      "status": "added",
+      "title": "Zinc Halide Flux-Assisted Vitrification of Metal–Organic Frameworks Enables Chemical Diversification and Tunable Gas Sorption",
+      "authors": 7,
+      "year": "2026",
+      "onlineDate": "2026-06-16",
+      "source": "https://api.crossref.org/works/10.1021/jacs.6c05678",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1002/ange.202417137",
+      "status": "added",
+      "title": "Pore Structure Modulation in Kirigamic Zeolitic Imidazolate Framework",
+      "authors": 11,
+      "year": "2025",
+      "onlineDate": "2024-11-21",
+      "source": "https://api.crossref.org/works/10.1002/ange.202417137",
+      "verifiedAt": "2026-10-13"
+    },
+    {
+      "doi": "10.1002/ange.202010783",
+      "status": "added",
+      "title": "MOF-Directed Synthesis of Crystalline Ionic Liquids with Enhanced Proton Conduction",
+      "authors": 13,
+      "year": "2021",
+      "onlineDate": "2020-11-13",
+      "source": "https://api.crossref.org/works/10.1002/ange.202010783",
+      "verifiedAt": "2026-10-13"
+    }
+  ]
+}

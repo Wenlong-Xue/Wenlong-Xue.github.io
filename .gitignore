@@ -1,0 +1,5 @@
+.research-cache/
+preview.log
+preview-error.log
+test-results/
+node_modules/

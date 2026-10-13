@@ -1,70 +1,13 @@
-# Codex instruction: maintain Wenlong Xue academic website
+# Maintain Wenlong Xue's academic website
 
-You are helping maintain an academic website for Wenlong Xue. The site should remain a fast, static, GitHub Pages-compatible academic website that is easy for a non-specialist to update.
+The working repository is `D:\Codex\wenlong-website`. Preserve GitHub Pages hosting, separate pages and EN/Chinese switching. Keep the layout compact: white background, restrained typography, narrow reading measures, plain research summaries and year-grouped papers. Keep the portrait and future-member placeholders.
 
-## Current architecture
+Routine edits belong in `content/*.json`. The browser editor saves these files locally. Preserve full author strings and keep `authorList` consistent when authors change. Keep preprints, covers and parallel editions clearly labelled; relate them to journal versions through `publishedVersion`. Never add similarly named researchers' papers without ORCID, institutional or coauthor evidence.
 
-- Plain HTML, CSS, and JavaScript.
-- No build step and no backend.
-- `index.html` is the home page. About, Research, MOF Glasses, Publications, News, People, and Contact are separate pages.
-- `edit.html` is a local browser-based editor for JSON content.
-- Public content is stored under `content/`.
-- `sitemap.xml` and `robots.txt` live at the root for search-engine discovery.
+Use DOI publisher/Crossref records to verify titles, author order, volume, issue, pages and publication dates. Journal issue year is used for grouping when available, with earlier online publication dates retained. Record sources and verification dates. Never claim that Scholar synchronisation is automatic.
 
-## Editing rules
+Run `node scripts/build.mjs` after JSON edits. This writes static English content and metadata into public HTML so information is visible without JavaScript. The browser hydrates the same content for Chinese, filtering and draft previews. Preserve canonical URLs, sitemap, robots, social metadata and valid Schema.org types. Only actual personal-profile pages should be `ProfilePage`; other pages should be `WebPage`.
 
-Routine content updates should be made in JSON:
+Use `node scripts/verify.mjs` with Playwright/Edge to test desktop and mobile layouts, full paper data, publication search, type filters, language persistence, photos, no-JavaScript content and editor JSON export. Inspect the screenshots as well as the assertions. The ignored `test-results/` and `.research-cache/` folders must not be published.
 
-- `content/site.json`: profile, hero text, about text, research, images, and contact.
-- `content/i18n.json`: Chinese translations for public page labels and editable content.
-- `content/publications.json`: publication entries grouped by year on `publications.html`.
-- `content/news.json`: recent updates.
-- `content/people.json`: profile and group members, including photo paths.
-
-Avoid hard-coding content into `index.html` unless the layout itself needs to change.
-
-Preserve canonical URLs, meta descriptions, index/follow robots tags, and Schema.org `ProfilePage` / `Person` JSON-LD when editing public pages.
-
-## Design direction
-
-- Academic, modern, clean, and credible for a future research-group website.
-- Use restrained sections, narrow text measure, and clear hierarchy.
-- Keep layout responsive for desktop, tablet, and mobile.
-- Avoid heavy dependencies and avoid adding a build system unless the project expands substantially.
-
-## Content direction
-
-- Use British English.
-- Prefer concise scientific language.
-- Core themes: hybrid glass frameworks, MOF glasses, amorphous proton conductors, synchrotron characterisation, thin-film processing, device integration, and energy/separation technologies.
-- Do not overclaim unpublished results.
-
-## Publication data
-
-Publication entries support:
-
-- `title`
-- `authors`
-- `journal`
-- `volume`
-- `issue`
-- `pages`
-- `year`
-- `type`
-- `doi`
-- `url`
-- `scholarUrl`
-
-Sort publications newest first. Use the Google Scholar profile as the publication list source, and use DOI or publisher URLs where possible. Preserve complete author strings.
-
-## Validation checklist
-
-Before finalising edits:
-
-- Confirm JSON files are valid.
-- Run through a local server, for example `python -m http.server 8000`.
-- Check `index.html`, `about.html`, `people.html`, and `edit.html` in a browser.
-- Check EN/Chinese language switching.
-- Check mobile layout below 760 px.
-- Confirm publication year grouping works.
-- Confirm editor draft preview and JSON saving/downloading work.
+Do not rerun `scripts/apply-metadata.mjs` without review: it is the date-specific October 2026 migration. Create a backup before syncing the public files to `D:\Web\wenlong-website`; exclude `.git`, metadata caches and test results. Never overwrite unrelated user edits.

@@ -1,75 +1,35 @@
 # Wenlong Xue academic website
 
-This is a lightweight multi-page academic website for GitHub Pages. It uses plain HTML, CSS, and JavaScript, with editable content stored in JSON files under `content/`.
+Static academic website at https://wenlong-xue.github.io/. The main working copy is `D:\Codex\wenlong-website`; the local website copy is `D:\Web\wenlong-website`.
 
-## Local preview
+## Preview and edit
 
-Open a terminal in this folder and run:
+Run `node scripts/preview.mjs 8786`, then open `http://127.0.0.1:8786/`.
 
-```bash
-python -m http.server 8000
-```
+Use `http://127.0.0.1:8786/edit.html` in Edge or Chrome. Open the website folder, edit fields, then use **Save to folder**. This changes local JSON; publishing to GitHub is a separate step. **Download JSON** is also available. The draft preview only changes your own browser.
 
-Then open:
+## Content
 
-- Website: `http://localhost:8000/`
-- About: `http://localhost:8000/about.html`
-- MOF glasses SEO page: `http://localhost:8000/mof-glasses.html`
-- Publications: `http://localhost:8000/publications.html`
-- Editor: `http://localhost:8000/edit.html`
+- `content/site.json`: profile, email, portrait, homepage text, research topics and timeline.
+- `content/publications.json`: full authors, DOI, citation details, publication type and related versions.
+- `content/news.json`: dated English and Chinese updates.
+- `content/people.json`: member profiles, photos and placeholders.
+- `content/i18n.json`: Chinese UI and profile text.
+- `content/articles.json` and `content/articles-zh.json`: longer research/background text.
+- `content/publication-audit.json`: verified metadata sources and changes.
 
-Opening `index.html` directly may work for the layout, but most browsers block local JSON loading from `file://`. Use the local server above for normal editing.
+Publications are grouped by journal issue year when assigned; otherwise by online publication year. Earlier online dates remain visible when they differ. Journal articles are the default view. Preprints, covers and parallel editions remain accessible using **All** or **Other versions**. The homepage shows four recent journal articles without repeating parallel versions.
 
-## Editing content in the browser
+## Prepare an update
 
-Use `edit.html` in Microsoft Edge or Google Chrome.
+Run `node scripts/build.mjs` after editing content and before publishing. This small dependency-free script writes crawler-readable English content, page metadata and a sitemap into the HTML. The public website needs no server or build runtime and remains compatible with GitHub Pages. The browser also reloads JSON for editing and Chinese switching.
 
-1. Click **Open folder**.
-2. Choose the website root folder, the one that contains `index.html`.
-3. Edit profile, homepage text, research directions, publications, news, and people.
-4. Click **Save to folder**.
-5. Refresh the main website tab.
+`node scripts/collect-metadata.mjs` fetches ORCID-listed DOIs and Crossref records into the ignored `.research-cache/` folder. Review the records before running `node scripts/apply-metadata.mjs`; that migration is specific to the 2026-10-13 update. Do not use it blindly for subsequent updates. Google Scholar is linked, but automated access is not guaranteed.
 
-If folder saving is not available, click **Download JSON** and place the downloaded files into the `content/` folder.
+The October 2026 update contains 29 records, including 21 journal articles. The 25 journal/parallel-edition DOI records were checked against Crossref, ORCID and the KU Leuven profile; the existing three preprints and one cover are retained as archive entries. The update adds the September photochromic-glass paper, August Nature Materials paper and the JACS publication of the zinc-halide flux work. Full authors are retained.
 
-## Content files
+## Verify and publish
 
-- `content/site.json`: profile, hero text, about text, research, images, and contact.
-- `content/i18n.json`: Chinese translations for public page labels and editable content.
-- `content/publications.json`: publication list shown on `publications.html`, grouped by year.
-- `content/news.json`: recent updates.
-- `content/people.json`: current profile and future group members, including photo paths.
-- `sitemap.xml` and `robots.txt`: crawl discovery files for GitHub Pages.
+`node scripts/verify.mjs` uses Playwright and the installed Edge browser to check desktop/mobile layouts, images, filtering, language switching, metadata, no-JavaScript content and editor JSON exports. Screenshots are saved under ignored `test-results/`.
 
-The public pages load these files automatically, so routine updates should not require editing the HTML files.
-
-Public HTML pages include canonical URLs, meta descriptions, and Schema.org `ProfilePage` / `Person` JSON-LD for search engines.
-
-## Publication updates
-
-Publication entries support:
-
-- `title`
-- `authors`
-- `journal`
-- `volume`
-- `issue`
-- `pages`
-- `year`
-- `type`
-- `doi`
-- `url`
-- `scholarUrl`
-
-The publication list is structured from the Google Scholar profile and includes complete author strings, journal details, DOI or article links, and Scholar detail links. DOI links appear automatically when `url` is filled.
-
-## GitHub Pages deployment
-
-1. Create a GitHub repository, for example `wenlongxue.github.io`.
-2. Upload all files from this folder to the repository root.
-3. In GitHub, go to **Settings > Pages**.
-4. Choose **Deploy from a branch**.
-5. Select branch `main` and folder `/root`.
-6. Save.
-
-The public site will be available at `https://<username>.github.io/`.
+Commit the generated HTML and content together, then push `main` to `https://github.com/Wenlong-Xue/Wenlong-Xue.github.io`. GitHub Pages deploys the repository root. `robots.txt` permits crawling, and `sitemap.xml` lists public academic pages. `edit.html` is a maintenance tool and is omitted from the sitemap.

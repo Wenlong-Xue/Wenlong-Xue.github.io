@@ -66,6 +66,7 @@ const listConfigs = {
       { key: "doi", label: "DOI" },
       { key: "url", label: "URL" },
       { key: "scholarUrl", label: "Scholar URL" },
+      { key: "publishedVersion", label: "Published / parallel version DOI" },
       { key: "tags", label: "Tags", type: "tags" },
       { key: "selected", label: "Selected paper", type: "checkbox" }
     ]
@@ -85,10 +86,13 @@ const listConfigs = {
     title: "People",
     path: "people",
     addLabel: "Add person",
-    defaults: () => ({ name: "New person", role: "", bio: "", links: [] }),
+    defaults: () => ({ name: "New person", role: "", bio: "", links: [], photo: "", placeholder: true }),
     fields: [
       { key: "name", label: "Name" },
       { key: "role", label: "Role" },
+      { key: "photo", label: "Photo path or URL" },
+      { key: "photoAlt", label: "Photo description" },
+      { key: "placeholder", label: "Use placeholder", type: "checkbox" },
       { key: "bio", label: "Bio", type: "textarea" },
       { key: "links", label: "Links", type: "links" }
     ]
@@ -116,7 +120,7 @@ function setPath(path, value) {
 }
 
 async function fetchJSON(path) {
-  const response = await fetch(path);
+  const response = await fetch(path, { cache: "no-cache" });
   if (!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -216,6 +220,8 @@ function renderStaticFields() {
     fieldHTML("site.profile.affiliation", "Affiliation", "textarea", { full: true }),
     fieldHTML("site.profile.location", "Location"),
     fieldHTML("site.profile.email", "Email"),
+    fieldHTML("site.profile.photoUrl", "Portrait path or URL", "text", { full: true }),
+    fieldHTML("site.profile.photoAlt", "Portrait description", "text", { full: true }),
     fieldHTML("site.profile.scholarUrl", "Google Scholar URL", "text", { full: true }),
     fieldHTML("site.profile.orcidUrl", "ORCID URL", "text", { full: true }),
     fieldHTML("site.profile.kuProfileUrl", "KU Leuven profile URL", "text", { full: true })
@@ -302,6 +308,10 @@ function updateFromField(input) {
     setPath(path, parseLinks(input.value));
   } else {
     setPath(path, input.value);
+  }
+
+  if (/^publications\.\d+\.authors$/.test(path)) {
+    setPath(path.replace(/authors$/, "authorList"), input.value.split(",").map(name => name.trim()).filter(Boolean));
   }
 
   updateDraft();
